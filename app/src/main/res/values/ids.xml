@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="constraintLayout" type="id" />
+    <item name="imageView2" type="id" />
+    <item name="linearLayout" type="id" />
+    <item name="scale_plus" type="id" />
+    <item name="scale_minus" type="id" />
+    <item name="tableLayout" type="id" />
+    <item name="up_button" type="id" />
+    <item name="left_button" type="id" />
+    <item name="down_button" type="id" />
+    <item name="right_button" type="id" />
+</resources>

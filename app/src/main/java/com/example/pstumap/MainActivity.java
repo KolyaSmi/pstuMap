@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,49 +13,97 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button plus_button;
-    private Button minus_button;
-    private ImageView map;
-    private TestMap testMap = new TestMap();
-    private final float SCALE_STEP = 0.5F;
-
+//    private Button plus_button;
+//    private Button minus_button;
+//    private Button up_button;
+//    private Button right_button;
+//    private Button left_button;
+//    private Button down_button;
+//    private ImageView map;
+//    private TestMap testMap = new TestMap();
+//    private final float SCALE_STEP = 0.5F;
+//    private final float MOV_STEP = 0.5f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initElement();
-        setButtonEvents();
+//        initElement();
+//        setButtonEvents();
 
 //        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //        ft.replace(R.id.frame_layout, testMap);
     }
 
-    private void initElement(){
-        plus_button = findViewById(R.id.scale_plus);
-        minus_button = findViewById(R.id.scale_minus);
-        map = findViewById(R.id.test_map);
-    }
+//    private void initElement(){
+//        plus_button = findViewById(R.id.scale_plus);
+//        minus_button = findViewById(R.id.scale_minus);
+//
+//        up_button = findViewById(R.id.up_button);
+//        down_button = findViewById(R.id.down_button);
+//        left_button = findViewById(R.id.left_button);
+//        right_button = findViewById(R.id.right_button);
+//
+//        map = findViewById(R.id.test_map);
+//    }
 
-    private void scaleMap(float scale){
-        map.setScaleX(map.getScaleX() + scale);
-        map.setScaleY(map.getScaleY() + scale);
-    }
+//    private void scaleMap(float scale){
+//        map.setScaleX(map.getScaleX() + scale);
+//        map.setScaleY(map.getScaleY() + scale);
+//    }
 
-    private void setButtonEvents(){
-        plus_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scaleMap(SCALE_STEP);
-            }
-        });
+//    private void setPosMap(float dx, float dy){
+////        ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams)map.getLayoutParams();
+////        float x = getResources().getDimensionPixelSize(R.dimen.ololo_margin);
+//        float x = map.getX();
+//        float y = map.getY();
+////        map.setPadding();
+//        map.setX(x + dx);
+//        map.setY(y + dy);
+//    }
 
-        minus_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scaleMap(-SCALE_STEP);
-            }
-        });
-    }
+//    private void setButtonEvents(){
+//        plus_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                scaleMap(SCALE_STEP);
+//            }
+//        });
+//
+//        minus_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                scaleMap(-SCALE_STEP);
+//            }
+//        });
+//
+//        up_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setPosMap(0, MOV_STEP);
+//            }
+//        });
+//
+//        down_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setPosMap(0, -MOV_STEP);
+//            }
+//        });
+//
+//        left_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setPosMap(-MOV_STEP, 0);
+//            }
+//        });
+//
+//        right_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setPosMap(MOV_STEP, 0);
+//            }
+//        });
+//    }
 }

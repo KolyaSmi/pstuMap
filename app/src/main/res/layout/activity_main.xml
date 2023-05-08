@@ -2,52 +2,105 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/constraintLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <ImageView
-            android:id="@+id/test_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/test_map"
-            tools:ignore="ImageContrastCheck" />
+<!--        <ImageView-->
+<!--            android:id="@+id/test_map"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:srcCompat="@drawable/test_map" />-->
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="362dp"
-            android:layout_marginTop="200dp"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linearLayout"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="362dp"-->
+<!--            android:layout_marginTop="200dp"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
 
-            <Button
-                android:id="@+id/scale_plus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                tools:ignore="TouchTargetSizeCheck" />
+<!--            <Button-->
+<!--                android:id="@+id/scale_plus"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:text="+"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
 
-            <Button
-                android:id="@+id/scale_minus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+<!--            <Button-->
+<!--                android:id="@+id/scale_minus"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:text="-"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
+<!--        </LinearLayout>-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <TableLayout-->
+<!--            android:id="@+id/tableLayout"-->
+<!--            android:layout_width="270dp"-->
+<!--            android:layout_height="102dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--            <TableRow-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:translationX="90dp">-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/up_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="u" />-->
+<!--            </TableRow>-->
+
+<!--            <TableRow-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/left_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="l" />-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/down_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="d" />-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/right_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="r" />-->
+<!--            </TableRow>-->
+
+<!--            <TableRow-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+
+<!--            <TableRow-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+<!--        </TableLayout>-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
