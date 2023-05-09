@@ -18,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
     private Button down_button;
     private Button left_button;
     private Button right_button;
+    private Button flor_1_button;
+    private Button flor_2_button;
 
     private ImageView map;
     private TestMap testMap = new TestMap();
     private final float SCALE_STEP = 0.5F;
-    private final float MOV_STEP = 10f;
+    private final float MOV_STEP = 25f;
 
 
     @Override
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         left_button = findViewById(R.id.left_button);
         right_button = findViewById(R.id.right_button);
 
+        flor_1_button = findViewById(R.id.floor_1_button);
+        flor_2_button = findViewById(R.id.floor_2_button);
+
         map = findViewById(R.id.test_map);
     }
 
@@ -59,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         float y = map.getY();
         map.setX(x + dx);
         map.setY(y + dy);
+    }
+
+    private void setImage(int image){
+        map.setImageResource(image);
     }
 
     private void setButtonEvents(){
@@ -101,6 +110,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 movMap(MOV_STEP, 0);
+            }
+        });
+
+        flor_1_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setImage(R.drawable.test_map);
+            }
+        });
+
+        flor_2_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setImage(R.drawable.test_map_2);
             }
         });
     }
