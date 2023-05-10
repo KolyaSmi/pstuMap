@@ -1,21 +1,35 @@
 package com.example.pstumap;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Engine {
 
     private ImageView map;
+    private TextView floor_number;
 
     private float dX = 0;
     private float dY = 0;
 
-    public Engine (ImageView map){
+    private int[] mass_floor;
+    private int floor;
+
+    public Engine (ImageView map, TextView floor_number , int floor){
         this.map = map;
+        this.floor = floor;
+        this.floor_number = floor_number;
+        floor_number.setText(floor + "");
+        mass_floor = new int[Config.MAX_FLOOR - Config.MIN_FLOOR + 1];
+        mass_floor[0] = R.drawable.test_map;
+        mass_floor[1] = R.drawable.test_map_2;
     }
 
-    protected void scaleMap(int scale){
-        map.setScaleX(map.getScaleX() + Config.SCALE_STEP * scale);
-        map.setScaleY(map.getScaleY() + Config.SCALE_STEP * scale);
+    protected void scaleMap(int index){
+        float scale = map.getScaleX() + Config.SCALE_STEP * index;
+        if (scale >= Config.MIN_SIZE && scale <= Config.MAX_SIZE) {
+            map.setScaleX(scale);
+            map.setScaleY(scale);
+        }
     }
 
     protected void moveMap(float dx, float dy){
@@ -51,5 +65,22 @@ public class Engine {
 
     protected void setImage(int image){
         map.setImageResource(image);
+    }
+
+    protected void setFloor(int dir){
+        switch (dir){
+            case Config.UP:
+                if (Config.MAX_FLOOR != floor) {
+                    floor++;
+                    setImage(mass_floor[floor - 1]);
+                }
+                break;
+            case Config.DOWN:
+                if (Config.MIN_FLOOR != floor) {
+                    floor--;
+                    setImage(mass_floor[floor - 1]);
+                }
+                break;
+        }
     }
 }

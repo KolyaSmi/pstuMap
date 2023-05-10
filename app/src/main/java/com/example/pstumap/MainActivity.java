@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity{
     private Button right_button;
     private Button flor_1_button;
     private Button flor_2_button;
+    private TextView floor_number;
     //test
     private TextView text;
     //end test
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity{
 
         flor_1_button = findViewById(R.id.floor_1_button);
         flor_2_button = findViewById(R.id.floor_2_button);
+        floor_number = findViewById(R.id.floor_number);
 
         //test
         text = findViewById(R.id.textView2);
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity{
 
         map = findViewById(R.id.test_map);
 
-        engine = new Engine(map);
+        engine = new Engine(map, floor_number, 1);
 
         map.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -126,14 +128,16 @@ public class MainActivity extends AppCompatActivity{
         flor_1_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.setImage(R.drawable.test_map);
+//                engine.setImage(R.drawable.test_map);
+                engine.setFloor(Config.UP);
             }
         });
 
         flor_2_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.setImage(R.drawable.test_map_2);
+//                engine.setImage(R.drawable.test_map_2);
+                engine.setFloor(Config.DOWN);
             }
         });
     }
