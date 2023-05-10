@@ -99,6 +99,7 @@
         </TableLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="124dp"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
@@ -108,26 +109,28 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/floor_1_button"
+                android:id="@+id/floor_up_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:insetRight="10dp"
-                android:text="1" />
+                android:text="u" />
 
             <Button
-                android:id="@+id/floor_2_button"
+                android:id="@+id/floor_down_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:insetLeft="10dp"
-                android:text="2" />
+                android:text="d" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="624dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -136,9 +139,10 @@
             android:id="@+id/floor_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_marginStart="188dp"
+            android:text="floor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

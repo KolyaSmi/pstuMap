@@ -73,12 +73,14 @@ public class Engine {
                 if (Config.MAX_FLOOR != floor) {
                     floor++;
                     setImage(mass_floor[floor - 1]);
+                    floor_number.setText(floor + "");
                 }
                 break;
             case Config.DOWN:
                 if (Config.MIN_FLOOR != floor) {
                     floor--;
                     setImage(mass_floor[floor - 1]);
+                    floor_number.setText(floor + "");
                 }
                 break;
         }
