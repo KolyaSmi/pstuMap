@@ -13,20 +13,20 @@ public class MainActivity extends AppCompatActivity{
 
     private Button plus_button;
     private Button minus_button;
+    private Button floor_up_button;
+    private Button floor_down_button;
+    private TextView floor_number;
+    private ImageView map;
+
+    //test
     private Button up_button;
     private Button down_button;
     private Button left_button;
     private Button right_button;
-    private Button flor_up_button;
-    private Button flor_down_button;
-    private TextView floor_number;
-    //test
     private TextView text;
     //end test
 
     private Engine engine;
-
-    private ImageView map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,26 +36,22 @@ public class MainActivity extends AppCompatActivity{
         initElement();
         setButtonEvents();
 
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(R.id.frame_layout, testMap);
     }
-
-
 
     private void initElement(){
         plus_button = findViewById(R.id.scale_plus);
         minus_button = findViewById(R.id.scale_minus);
 
+        floor_up_button = findViewById(R.id.floor_up_button);
+        floor_down_button = findViewById(R.id.floor_down_button);
+        floor_number = findViewById(R.id.floor_number);
+
+        //test
         up_button = findViewById(R.id.up_button);
         down_button = findViewById(R.id.down_button);
         left_button = findViewById(R.id.left_button);
         right_button = findViewById(R.id.right_button);
 
-        flor_up_button = findViewById(R.id.floor_up_button);
-        flor_down_button = findViewById(R.id.floor_down_button);
-        floor_number = findViewById(R.id.floor_number);
-
-        //test
         text = findViewById(R.id.textView2);
         //end test
 
@@ -97,6 +93,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        //test
         up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,19 +121,18 @@ public class MainActivity extends AppCompatActivity{
                 engine.moveMap(Config.RIGHT);
             }
         });
+        //end test
 
-        flor_up_button.setOnClickListener(new View.OnClickListener() {
+        floor_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                engine.setImage(R.drawable.test_map);
                 engine.setFloor(Config.UP);
             }
         });
 
-        flor_down_button.setOnClickListener(new View.OnClickListener() {
+        floor_down_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                engine.setImage(R.drawable.test_map_2);
                 engine.setFloor(Config.DOWN);
             }
         });
