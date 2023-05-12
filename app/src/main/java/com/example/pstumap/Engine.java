@@ -72,16 +72,16 @@ public class Engine {
         map.setImageResource(image);
     }
 
-    protected void setFloor(int dir){
+    protected void changeFloor(int dir){
         switch (dir){
             case Config.UP:
-                complex_a.up_floor();
+                complex_a.upFloor();
                 break;
             case Config.DOWN:
-                complex_a.down_floor();
+                complex_a.downFloor();
                 break;
         }
         setImage(complex_a.getImage());
-        floor_number_text.setText(complex_a.getFloor());
+        floor_number_text.setText(complex_a.getStrFloor());
     }
 }

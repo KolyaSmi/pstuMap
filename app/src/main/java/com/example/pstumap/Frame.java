@@ -18,14 +18,14 @@ public class Frame {
         current_image = images[0];
     }
 
-    public void up_floor(){
+    public void upFloor(){
         if (max_floor != current_floor){
             current_floor++;
             current_image = images[current_floor - 1];
         }
     }
 
-    public void down_floor(){
+    public void downFloor(){
         if (min_floor != current_floor){
             current_floor--;
             current_image = images[current_floor - 1];
@@ -34,6 +34,10 @@ public class Frame {
 
     public int getFloor(){
         return current_floor;
+    }
+
+    public String getStrFloor(){
+        return Integer.toString(current_floor);
     }
 
     public int getImage(){

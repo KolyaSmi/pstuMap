@@ -126,14 +126,14 @@ public class MainActivity extends AppCompatActivity{
         floor_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.setFloor(Config.UP);
+                engine.changeFloor(Config.UP);
             }
         });
 
         floor_down_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.setFloor(Config.DOWN);
+                engine.changeFloor(Config.DOWN);
             }
         });
     }
