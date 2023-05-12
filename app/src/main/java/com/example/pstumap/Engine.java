@@ -3,13 +3,6 @@ package com.example.pstumap;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Map;
-
 public class Engine {
 
     private ImageView map;
@@ -18,8 +11,6 @@ public class Engine {
     private float dX = 0;
     private float dY = 0;
 
-    private JSONObject data;
-    private Frame complex_a;
     private int[] mass_floor;
     private int floor;
 
@@ -27,13 +18,10 @@ public class Engine {
         this.map = map;
         this.floor = floor;
         this.floor_number = floor_number;
-
-        complex_a = new Frame();
-
+        floor_number.setText(floor + "");
         mass_floor = new int[Config.MAX_FLOOR - Config.MIN_FLOOR + 1];
         mass_floor[0] = R.drawable.test_map;
         mass_floor[1] = R.drawable.test_map_2;
-        floor_number.setText(mass_floor[0] + " " + mass_floor[1]);
     }
 
     protected void scaleMap(int index){
