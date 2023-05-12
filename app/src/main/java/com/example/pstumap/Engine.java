@@ -6,22 +6,27 @@ import android.widget.TextView;
 public class Engine {
 
     private ImageView map;
-    private TextView floor_number;
+    private TextView floor_number_text;
 
     private float dX = 0;
     private float dY = 0;
 
-    private int[] mass_floor;
-    private int floor;
+    private Frame complex_a;
 
-    public Engine (ImageView map, TextView floor_number , int floor){
+    public Engine (ImageView map, TextView floor_number_text , int floor_number){
         this.map = map;
-        this.floor = floor;
-        this.floor_number = floor_number;
-        floor_number.setText(floor + "");
-        mass_floor = new int[Config.MAX_FLOOR - Config.MIN_FLOOR + 1];
-        mass_floor[0] = R.drawable.test_map;
-        mass_floor[1] = R.drawable.test_map_2;
+        this.floor_number_text = floor_number_text;
+        floor_number_text.setText(floor_number + "");
+        createFrames();
+    }
+
+    private void createFrames(){
+        int[] mass_images = new int[Config.MAX_FLOOR - Config.MIN_FLOOR + 1];
+
+        mass_images[0] = R.drawable.test_map;
+        mass_images[1] = R.drawable.test_map_2;
+        complex_a = new Frame(mass_images, 1, 2);
+
     }
 
     protected void scaleMap(int index){
@@ -70,19 +75,13 @@ public class Engine {
     protected void setFloor(int dir){
         switch (dir){
             case Config.UP:
-                if (Config.MAX_FLOOR != floor) {
-                    floor++;
-                    setImage(mass_floor[floor - 1]);
-                    floor_number.setText(floor + "");
-                }
+                complex_a.up_floor();
                 break;
             case Config.DOWN:
-                if (Config.MIN_FLOOR != floor) {
-                    floor--;
-                    setImage(mass_floor[floor - 1]);
-                    floor_number.setText(floor + "");
-                }
+                complex_a.down_floor();
                 break;
         }
+        setImage(complex_a.getImage());
+        floor_number_text.setText(complex_a.getFloor());
     }
 }
