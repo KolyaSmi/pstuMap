@@ -25,7 +25,8 @@ public class Engine {
 
         mass_images[0] = R.drawable.test_map;
         mass_images[1] = R.drawable.test_map_2;
-        complex_a = new Frame(mass_images, 1, 2);
+        mass_images[2] = R.drawable.test_map_3;
+        complex_a = new Frame(mass_images, 1, 3);
 
     }
 

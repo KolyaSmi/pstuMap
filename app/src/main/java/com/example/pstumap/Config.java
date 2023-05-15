@@ -12,7 +12,7 @@ public abstract class Config {
     protected static final float MIN_SIZE = 0.1f;
     protected static final float MAX_SIZE = 2f;
 
-    protected static final int MAX_FLOOR = 2;
+    protected static final int MAX_FLOOR = 3;
     protected static final int MIN_FLOOR = 1;
 
 }
