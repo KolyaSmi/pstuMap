@@ -1,21 +1,33 @@
-package com.example.pstumap;
+package com.example.pstumap.source;
 
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.pstumap.R;
+import com.example.pstumap.data.Config;
+import com.example.pstumap.floorsfragment.TestMap;
 
 public class Engine {
 
     private ImageView map;
+    private TestMap testMap;
     private TextView floor_number_text;
 
     private float dX = 0;
     private float dY = 0;
 
-    private Frame complex_a;
+    public Frame complex_a;
 
-    public Engine (ImageView map, TextView floor_number_text , int floor_number){
-        this.map = map;
+    public Engine (FragmentTransaction ft, TextView floor_number_text , int floor_number){
         this.floor_number_text = floor_number_text;
+
+        testMap = new TestMap();
+        testMap.setEngine(this);
+        ft.replace(R.id.frame_layout, testMap).commit();
+
         floor_number_text.setText(floor_number + "");
         createFrames();
     }
@@ -27,10 +39,11 @@ public class Engine {
         mass_images[1] = R.drawable.test_map_2;
         mass_images[2] = R.drawable.test_map_3;
         complex_a = new Frame(mass_images, 1, 3);
-
+        Log.i("app_log", "create Place");
+//        complex_a.addPlace(testMap.getIcon(), 1, 100, 100);
     }
 
-    protected void scaleMap(int index){
+    public void scaleMap(int index){
         float scale = map.getScaleX() + Config.SCALE_STEP * index;
         if (scale >= Config.MIN_SIZE && scale <= Config.MAX_SIZE) {
             map.setScaleX(scale);
@@ -38,42 +51,21 @@ public class Engine {
         }
     }
 
-    protected void moveMap(float dx, float dy){
-        float x = map.getX();
-        float y = map.getY();
-        map.setX(x + dx - dX);
-        map.setY(y + dy - dY);
+    public void moveMap(float dx, float dy){
+        testMap.mov(dx, dy);
+        complex_a.getPlaces().setPos(dx - dX, dy - dY);
     }
 
-    protected void moveMap(int dir){
-        float x = map.getX();
-        float y = map.getY();
-        switch (dir){
-            case Config.UP:
-                map.setY(y - Config.MOVE_STEP - dY);
-                break;
-            case Config.DOWN:
-                map.setY(y + Config.MOVE_STEP - dY);
-                break;
-            case Config.LEFT:
-                map.setX(x - Config.MOVE_STEP - dX);
-                break;
-            case Config.RIGHT:
-                map.setX(x + Config.MOVE_STEP - dX);
-                break;
-        }
-    }
-
-    protected void setDiffPos(float dX, float dY){
+    public void setDiffPos(float dX, float dY){
         this.dX = dX;
         this.dY = dY;
     }
 
-    protected void setImage(int image){
+    private void setImage(int image){
         map.setImageResource(image);
     }
 
-    protected void changeFloor(int dir){
+    public void changeFloor(int dir){
         switch (dir){
             case Config.UP:
                 complex_a.upFloor();
@@ -84,5 +76,13 @@ public class Engine {
         }
         setImage(complex_a.getImage());
         floor_number_text.setText(complex_a.getStrFloor());
+    }
+
+    public float getDX(){
+        return dX;
+    }
+
+    public float getDY(){
+        return dY;
     }
 }

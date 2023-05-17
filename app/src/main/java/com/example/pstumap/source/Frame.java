@@ -1,6 +1,10 @@
-package com.example.pstumap;
+package com.example.pstumap.source;
+
+import android.widget.ImageView;
 
 public class Frame {
+
+    private Places[] places;
 
     private int min_floor;
     private int max_floor;
@@ -13,6 +17,8 @@ public class Frame {
         this.images = images;
         this.max_floor = max_floor;
         this.min_floor = min_floor;
+
+        places = new Places[max_floor - min_floor + 1];
 
         current_floor = min_floor;
         current_image = images[0];
@@ -42,5 +48,14 @@ public class Frame {
 
     public int getImage(){
         return current_image;
+    }
+
+    public void addPlace(ImageView icon, int floor, float x, float y){
+        places[floor - 1] = new Places();
+        places[floor - 1].addPlace(icon, x, y);
+    }
+
+    public Places getPlaces(){
+        return places[current_floor - 1];
     }
 }

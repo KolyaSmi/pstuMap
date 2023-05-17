@@ -1,6 +1,7 @@
 package com.example.pstumap;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -8,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.pstumap.data.Config;
+import com.example.pstumap.floorsfragment.TestMap;
+import com.example.pstumap.source.Engine;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -19,10 +24,6 @@ public class MainActivity extends AppCompatActivity{
     private ImageView map;
 
     //test
-    private Button up_button;
-    private Button down_button;
-    private Button left_button;
-    private Button right_button;
     private TextView text;
     //end test
 
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity{
 
         initElement();
         setButtonEvents();
-
     }
 
     private void initElement(){
@@ -47,33 +47,32 @@ public class MainActivity extends AppCompatActivity{
         floor_number = findViewById(R.id.floor_number);
 
         //test
-        up_button = findViewById(R.id.up_button);
-        down_button = findViewById(R.id.down_button);
-        left_button = findViewById(R.id.left_button);
-        right_button = findViewById(R.id.right_button);
 
         text = findViewById(R.id.textView2);
         //end test
 
-        map = findViewById(R.id.test_map);
+//        map = findViewById(R.id.test_map);
 
-        engine = new Engine(map, floor_number, 1);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-        map.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    engine.setDiffPos(event.getX(), event.getY());
-                }
-                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-                    //test
-                    text.setText(event.getX() + " " + event.getY());
-                    //end test
-                    engine.moveMap(event.getX(), event.getY());
-                }
-                return true;
-            }
-        });
+//        engine = new Engine(map, floor_number, 1);
+        engine = new Engine(ft, floor_number, 1);
+
+//        map.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
+//                    engine.setDiffPos(event.getX(), event.getY());
+//                }
+//                if (MotionEvent.ACTION_MOVE == event.getAction()) {
+//                    //test
+//                    text.setText(event.getX() + " " + event.getY());
+//                    //end test
+//                    engine.moveMap(event.getX(), event.getY());
+//                }
+//                return true;
+//            }
+//        });
     }
 
 
@@ -92,36 +91,6 @@ public class MainActivity extends AppCompatActivity{
                 engine.scaleMap(-1);
             }
         });
-
-        //test
-        up_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                engine.moveMap(Config.UP);
-            }
-        });
-
-        down_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                engine.moveMap(Config.DOWN);
-            }
-        });
-
-        left_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                engine.moveMap(Config.LEFT);
-            }
-        });
-
-        right_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                engine.moveMap(Config.RIGHT);
-            }
-        });
-        //end test
 
         floor_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
