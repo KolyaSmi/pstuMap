@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import com.example.pstumap.R;
 import com.example.pstumap.source.Engine;
 
-public class TestMap extends Fragment {
+public class TestMap extends Fragment{
 
     private ImageView map;
     private Engine engine;
@@ -38,28 +38,29 @@ public class TestMap extends Fragment {
 //        return inflater.inflate(R.layout.fragment_test_map, container, false);
         View rootView = inflater.inflate(R.layout.fragment_test_map, container, false);
 
-        map = rootView.findViewById(R.id.test_map);
-        map.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    engine.setDiffPos(event.getX(), event.getY());
-                }
-                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-                    engine.moveMap(event.getX(), event.getY());
-                }
-                return true;
-            }
-        });
+        map = rootView.findViewById(R.id.map);
+//        map.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
+//                    engine.setDiffPos(event.getX(), event.getY());
+//                }
+//                if (MotionEvent.ACTION_MOVE == event.getAction()) {
+//                    engine.moveMap(event.getX(), event.getY());
+//                }
+//                return true;
+//            }
+//        });
 
         icon_1 = rootView.findViewById(R.id.icon_1);
-        initPlace();
+        initPlaces();
         Log.i("app_log", "create icon");
+
         return rootView;
     }
 
-    public void initPlace(){
-        engine.complex_a.addPlace(icon_1, 1, 0, 0);
+    public void initPlaces(){
+        FragmentManager.complex_a.addPlace(icon_1, 1, 0, 0);
     }
 
     public void mov(float dx, float dy){
@@ -67,13 +68,5 @@ public class TestMap extends Fragment {
         float y = map.getY();
         map.setX(x + dx - engine.getDX());
         map.setY(y + dy - engine.getDY());
-    }
-
-    public ImageView getMap(){
-        return map;
-    }
-
-    public ImageView getIcon(){
-        return icon_1;
     }
 }

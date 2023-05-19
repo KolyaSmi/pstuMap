@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,10 +22,13 @@ public class MainActivity extends AppCompatActivity{
     private Button floor_up_button;
     private Button floor_down_button;
     private TextView floor_number;
-    private ImageView map;
+    private FrameLayout frame_layout;
 
     //test
     private TextView text;
+
+    float X = 0;
+    float Y = 0;
     //end test
 
     private Engine engine;
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity{
         text = findViewById(R.id.textView2);
         //end test
 
+        frame_layout = findViewById(R.id.frame_layout);
 //        map = findViewById(R.id.test_map);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -58,21 +63,23 @@ public class MainActivity extends AppCompatActivity{
 //        engine = new Engine(map, floor_number, 1);
         engine = new Engine(ft, floor_number, 1);
 
-//        map.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent event) {
-//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-//                    engine.setDiffPos(event.getX(), event.getY());
-//                }
-//                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-//                    //test
-//                    text.setText(event.getX() + " " + event.getY());
-//                    //end test
-//                    engine.moveMap(event.getX(), event.getY());
-//                }
-//                return true;
-//            }
-//        });
+        frame_layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (MotionEvent.ACTION_DOWN == event.getAction()) {
+                    engine.setDiffPos(event.getX(), event.getY());
+                    X = event.getX();
+                    Y = event.getY();
+                }
+                if (MotionEvent.ACTION_MOVE == event.getAction()) {
+                    //test
+                    text.setText((event.getX() - X) + " " + (event.getY() - Y));
+                    //end test
+                    engine.moveMap(event.getX(), event.getY());
+                }
+                return true;
+            }
+        });
     }
 
 
