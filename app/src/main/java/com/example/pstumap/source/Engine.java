@@ -2,8 +2,6 @@ package com.example.pstumap.source;
 
 import static com.example.pstumap.data.Config.*;
 import static com.example.pstumap.floorsfragment.FragmentManager.complex_a;
-import static com.example.pstumap.floorsfragment.FragmentManager.mov;
-import static com.example.pstumap.floorsfragment.FragmentManager.testMap;
 
 import android.util.Log;
 import android.widget.ImageView;
@@ -44,7 +42,7 @@ public class Engine {
     }
 
     public void moveMap(float dx, float dy){
-        mov(dx, dy);
+//        mov(dx, dy);
         complex_a.getPlaces().setPos(dx - dX, dy - dY);
     }
 
@@ -66,7 +64,7 @@ public class Engine {
                 complex_a.downFloor();
                 break;
         }
-        setImage(complex_a.getImage());
+//        setImage(complex_a.getImage());
         floor_number_text.setText(complex_a.getStrFloor());
     }
 
