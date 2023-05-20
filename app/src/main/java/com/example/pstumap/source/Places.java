@@ -3,31 +3,21 @@ package com.example.pstumap.source;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Places {
 
     private class Place{
 
-        private ImageView icon;
+        protected ImageView icon;
 
-        private float X;
-        private float Y;
+        protected float X;
+        protected float Y;
 
         public Place(ImageView icon, float x, float y) {
             X = x;
             Y = y;
             this.icon = icon;
-        }
-
-        protected void movIcon(float dx, float dy){
-//            float x = icon.getX();
-//            float y = icon.getY();
-//            icon.setX(x + dx);
-//            icon.setY(y + dy);
-            X = icon.getX();
-            Y = icon.getY();
-            icon.setX(X + dx);
-            icon.setY(Y + dy);
         }
     }
 
@@ -37,9 +27,17 @@ public class Places {
         places.add(new Place(icon ,x, y));
     }
 
-    public void setPos(float dx, float dy) {
+    public void setPos() {
         for (Place place : places){
-            place.movIcon(dx, dy);
+            place.X = place.icon.getX();
+            place.Y = place.icon.getY();
+        }
+    }
+
+    public void mov(float dx, float dy){
+        for (Place place : places){
+            place.icon.setX(place.X + dx);
+            place.icon.setY(place.Y + dy);
         }
     }
 }

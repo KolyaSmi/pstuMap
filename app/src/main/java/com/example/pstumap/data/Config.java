@@ -15,4 +15,7 @@ public abstract class Config {
     public static final int MAX_FLOOR = 3;
     public static final int MIN_FLOOR = 1;
 
+    public static final int COMPLEX_A_ID = 1;
+    public static final int COMPLEX_B_ID = 2;
+
 }

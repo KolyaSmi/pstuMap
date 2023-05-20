@@ -1,5 +1,7 @@
 package com.example.pstumap.floorsfragment;
 
+import static com.example.pstumap.data.Config.COMPLEX_A_ID;
+
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -15,16 +17,12 @@ import android.widget.ImageView;
 import com.example.pstumap.R;
 import com.example.pstumap.source.Engine;
 
-public class TestMap extends Fragment{
+public class TestMap extends Fragment {
 
     private ImageView map;
-    private Engine engine;
 
-    private ImageView icon_1;
+    public ImageView icon_1;
 
-    public void setEngine(Engine engine){
-        this.engine = engine;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,25 +32,12 @@ public class TestMap extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_test_map, container, false);
         View rootView = inflater.inflate(R.layout.fragment_test_map, container, false);
 
         map = rootView.findViewById(R.id.map);
-//        map.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent event) {
-//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-//                    engine.setDiffPos(event.getX(), event.getY());
-//                }
-//                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-//                    engine.moveMap(event.getX(), event.getY());
-//                }
-//                return true;
-//            }
-//        });
 
         icon_1 = rootView.findViewById(R.id.icon_1);
+        FragmentManager.setFragment(map, COMPLEX_A_ID);
         initPlaces();
         Log.i("app_log", "create icon");
 
@@ -60,13 +45,6 @@ public class TestMap extends Fragment{
     }
 
     public void initPlaces(){
-        FragmentManager.complex_a.addPlace(icon_1, 1, 0, 0);
-    }
-
-    public void mov(float dx, float dy){
-        float x = map.getX();
-        float y = map.getY();
-        map.setX(x + dx - engine.getDX());
-        map.setY(y + dy - engine.getDY());
+        FragmentManager.complex_a.getFloor(1).getPlaces().addPlace(icon_1, 0, 0);
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -56,26 +57,22 @@ public class MainActivity extends AppCompatActivity{
         //end test
 
         frame_layout = findViewById(R.id.frame_layout);
-//        map = findViewById(R.id.test_map);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-//        engine = new Engine(map, floor_number, 1);
         engine = new Engine(ft, floor_number, 1);
 
         frame_layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
                 if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    engine.setDiffPos(event.getX(), event.getY());
-                    X = event.getX();
-                    Y = event.getY();
+                    engine.setDiffPos();
                 }
                 if (MotionEvent.ACTION_MOVE == event.getAction()) {
                     //test
                     text.setText((event.getX() - X) + " " + (event.getY() - Y));
                     //end test
-                    engine.moveMap(event.getX(), event.getY());
+                    engine.moveMap(event.getX() - X, event.getY() - Y);
                 }
                 return true;
             }
