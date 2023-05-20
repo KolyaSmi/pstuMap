@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity{
             public boolean onTouch(View view, MotionEvent event) {
                 if (MotionEvent.ACTION_DOWN == event.getAction()) {
                     engine.setDiffPos();
+                    X = event.getX();
+                    Y = event.getY();
                 }
                 if (MotionEvent.ACTION_MOVE == event.getAction()) {
                     //test
