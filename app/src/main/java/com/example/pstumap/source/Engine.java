@@ -31,6 +31,8 @@ public class Engine {
 //            map.setScaleX(scale);
 //            map.setScaleY(scale);
 //        }
+
+        FragmentManager.scale(index);
     }
 
     public void moveMap(float dx, float dy){

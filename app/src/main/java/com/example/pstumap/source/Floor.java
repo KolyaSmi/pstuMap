@@ -1,5 +1,7 @@
 package com.example.pstumap.source;
 
+import static com.example.pstumap.data.Config.SCALE_STEP;
+
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -31,6 +33,11 @@ public class Floor {
         map.setX(cur_x + dx);
         map.setY(cur_y + dy);
         Log.d("move", cur_x + " " + cur_y + " " + dx + " " + dy);
+    }
+
+    public void scale(int index) {
+        map.setScaleX(SCALE_STEP * index);
+        map.setScaleY(SCALE_STEP * index);
     }
 
     public ImageView getFragment() {

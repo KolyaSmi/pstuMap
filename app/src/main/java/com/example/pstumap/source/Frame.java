@@ -1,11 +1,8 @@
 package com.example.pstumap.source;
 
+
 import android.util.Log;
 import android.widget.ImageView;
-
-import androidx.fragment.app.Fragment;
-
-import com.example.pstumap.floorsfragment.TestMap;
 
 public class Frame {
 
@@ -51,5 +48,11 @@ public class Frame {
 
     public void setCurrentDiffPos(){
         floors[0].setPos();
+    }
+
+    public void scaleCurrentFloor(int index) {
+//        floors[0].getFragment().setScaleX(SCALE_STEP);
+//        floors[0].getFragment().setScaleY(SCALE_STEP);
+        floors[0].scale(index);
     }
 }

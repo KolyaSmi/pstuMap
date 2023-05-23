@@ -1,16 +1,12 @@
 package com.example.pstumap.floorsfragment;
 
 import static com.example.pstumap.data.Config.COMPLEX_A_ID;
-import static com.example.pstumap.data.Config.MAX_FLOOR;
-import static com.example.pstumap.data.Config.MIN_FLOOR;
 
 import android.widget.ImageView;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pstumap.R;
-import com.example.pstumap.source.Engine;
 import com.example.pstumap.source.Frame;
 
 public abstract class FragmentManager {
@@ -19,14 +15,14 @@ public abstract class FragmentManager {
 
     public static Frame complex_a;
 
-    private static int current_frame;
+    private static int current_frame_id;
 
     private static TestMap testMap;
 
     public static void initFrames(){
         complex_a = new Frame(1, 3, COMPLEX_A_ID);
 
-        current_frame = COMPLEX_A_ID;
+        current_frame_id = COMPLEX_A_ID;
     }
 
     public static void initFragments() {
@@ -47,14 +43,20 @@ public abstract class FragmentManager {
     }
 
     public static void mov (float dx, float dy){
-        switch (current_frame){
+        switch (current_frame_id){
             case COMPLEX_A_ID: complex_a.movCurrentFloor(dx, dy);
         }
     }
 
     public static void setDiffPos() {
-        switch (current_frame){
+        switch (current_frame_id){
             case COMPLEX_A_ID: complex_a.setCurrentDiffPos();
+        }
+    }
+
+    public static void scale(int index) {
+        switch (current_frame_id){
+            case COMPLEX_A_ID: complex_a.scaleCurrentFloor(index);
         }
     }
 }
