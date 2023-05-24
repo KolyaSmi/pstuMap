@@ -1,5 +1,7 @@
 package com.example.pstumap.source;
 
+import static com.example.pstumap.data.Config.DOWN;
+import static com.example.pstumap.data.Config.UP;
 import static com.example.pstumap.floorsfragment.FragmentManager.complex_a;
 
 import android.util.Log;
@@ -49,15 +51,7 @@ public class Engine {
     }
 
     public void changeFloor(int dir){
-//        switch (dir){
-//            case UP:
-//                complex_a.upFloor();
-//                break;
-//            case DOWN:
-//                complex_a.downFloor();
-//                break;
-//        }
-//        setImage(complex_a.getImage());
+        FragmentManager.changeFloor(dir);
         floor_number_text.setText(complex_a.getStrFloor());
     }
 }
