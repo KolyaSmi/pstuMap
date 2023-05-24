@@ -1,5 +1,7 @@
 package com.example.pstumap.source;
 
+import static com.example.pstumap.data.Config.MAX_SIZE;
+import static com.example.pstumap.data.Config.MIN_SIZE;
 import static com.example.pstumap.data.Config.SCALE_STEP;
 
 import android.util.Log;
@@ -14,6 +16,8 @@ public class Floor {
 
     private float cur_x;
     private float cur_y;
+
+    private float cur_scale;
 
     public Floor(ImageView map) {
         this.map = map;
@@ -36,8 +40,14 @@ public class Floor {
     }
 
     public void scale(int index) {
-        map.setScaleX(SCALE_STEP * index);
-        map.setScaleY(SCALE_STEP * index);
+        cur_scale = map.getScaleX();
+        float mult = cur_scale + SCALE_STEP * index;
+        if(mult <= MAX_SIZE && mult >= MIN_SIZE) {
+            places.scale(index, map.getWidth());
+
+            map.setScaleX(mult);
+            map.setScaleY(mult);
+        }
     }
 
     public ImageView getFragment() {

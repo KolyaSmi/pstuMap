@@ -45,6 +45,6 @@ public class TestMap extends Fragment {
     }
 
     public void initPlaces(){
-        FragmentManager.complex_a.getFloor(1).getPlaces().addPlace(icon_1, 0, 0);
+        FragmentManager.complex_a.getFloor(1).getPlaces().addPlace(icon_1, 100, 100);
     }
 }

@@ -14,6 +14,8 @@ public class Frame {
 
     private int current_floor;
 
+    private int number_add_floor;
+
     public Frame(int min_floor, int max_floor, int id){
         this.max_floor = max_floor;
         this.min_floor = min_floor;
@@ -22,12 +24,12 @@ public class Frame {
         floors = new Floor[max_floor - min_floor + 1];
 
         current_floor = min_floor;
+        number_add_floor = 0;
     }
 
     public void addFloorFragment(ImageView map_fragment){
-        if(current_floor < max_floor) {
-            floors[current_floor - 1] = new Floor(map_fragment);
-            current_floor++;
+        if(number_add_floor < max_floor) {
+            floors[number_add_floor] = new Floor(map_fragment);
         }
     }
 
@@ -42,17 +44,17 @@ public class Frame {
     public void movCurrentFloor(float dx, float dy) {
 //        floors[current_floor - 1].mov(dx, dy);
 
-        floors[0].mov(dx, dy);
+        floors[current_floor - 1].mov(dx, dy);
         Log.d("move", "move current floor " + current_floor);
     }
 
     public void setCurrentDiffPos(){
-        floors[0].setPos();
+        floors[current_floor - 1].setPos();
     }
 
     public void scaleCurrentFloor(int index) {
 //        floors[0].getFragment().setScaleX(SCALE_STEP);
 //        floors[0].getFragment().setScaleY(SCALE_STEP);
-        floors[0].scale(index);
+        floors[current_floor - 1].scale(index);
     }
 }
