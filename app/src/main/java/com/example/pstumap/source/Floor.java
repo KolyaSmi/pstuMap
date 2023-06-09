@@ -1,60 +1,60 @@
 package com.example.pstumap.source;
 
-import static com.example.pstumap.data.Config.MAX_SIZE;
-import static com.example.pstumap.data.Config.MIN_SIZE;
-import static com.example.pstumap.data.Config.SCALE_STEP;
-
 import android.util.Log;
 import android.widget.ImageView;
 
-import androidx.fragment.app.Fragment;
+import com.example.pstumap.Config;
 
 public class Floor {
 
+    private Icon[] icons;
+
     private ImageView map;
-    private Places places;
 
-    private float cur_x;
-    private float cur_y;
+    private float scale;
+    private float x;
+    private float y;
 
-    private float cur_scale;
+    public Floor() {
 
-    public Floor(ImageView map) {
-        this.map = map;
-
-        places = new Places();
     }
 
-    public void setPos(){
-        places.setPos();
-        cur_x = map.getX();
-        cur_y = map.getY();
-        Log.d("setPos", cur_x + "" + cur_y);
+    public void setMap(ImageView imageView) {
+        map = imageView;
+        scale = map.getScaleX();
     }
 
-    public void mov(float dx, float dy){
-        places.mov(dx, dy);
-        map.setX(cur_x + dx);
-        map.setY(cur_y + dy);
-        Log.d("move", cur_x + " " + cur_y + " " + dx + " " + dy);
-    }
-
-    public void scale(int index) {
-        cur_scale = map.getScaleX();
-        float mult = cur_scale + SCALE_STEP * index;
-        if(mult <= MAX_SIZE && mult >= MIN_SIZE) {
-            places.scale(index, map.getWidth());
-
-            map.setScaleX(mult);
-            map.setScaleY(mult);
+    public void setIcons(ImageView[] dest_icons, float x, float y) {
+        icons = new Icon[dest_icons.length];
+        for (int i = 0; i < dest_icons.length; i++){
+            icons[i] = new Icon();
+            icons[i].setIcon(dest_icons[i], x, y);
         }
     }
 
-    public ImageView getFragment() {
-        return map;
+    public void setPos() {
+        for(Icon icon : icons){
+            icon.setPos();
+        }
+        x = map.getX();
+        y = map.getY();
     }
 
-    public Places getPlaces() {
-        return places;
+    public void scaleMap(float index){
+        for(Icon icon : icons){
+            icon.scaleIcon(index, map.getWidth());
+        }
+        scale = Config.SCALE_STEP * index + scale;
+        map.setScaleX(scale);
+        map.setScaleY(scale);
+        Log.d("scaleMap", "scale: " + scale);
+    }
+
+    public void movMap(float dx, float dy) {
+        for(Icon icon : icons){
+            icon.movIcon(dx, dy);
+        }
+        map.setX(x + dx);
+        map.setY(y + dy);
     }
 }

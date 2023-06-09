@@ -4,111 +4,95 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.pstumap.data.Config;
-import com.example.pstumap.floorsfragment.TestMap;
-import com.example.pstumap.source.Engine;
+import com.example.pstumap.fragments.FragmentManager;
+import com.example.pstumap.fragments.MapComplexG1;
+import com.example.pstumap.source.FrameManager;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private Button plus_button;
     private Button minus_button;
     private Button floor_up_button;
     private Button floor_down_button;
-    private TextView floor_number;
+
     private FrameLayout frame_layout;
 
-    //test
-    private TextView text;
-
-    float X = 0;
-    float Y = 0;
-    //end test
-
-    private Engine engine;
+    private float X;
+    private float Y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentManager.initFragment();
+
         initElement();
+        setTouchListener();
         setButtonEvents();
     }
 
-    private void initElement(){
-        plus_button = findViewById(R.id.scale_plus);
-        minus_button = findViewById(R.id.scale_minus);
-
-        floor_up_button = findViewById(R.id.floor_up_button);
-        floor_down_button = findViewById(R.id.floor_down_button);
-        floor_number = findViewById(R.id.floor_number);
-
-        //test
-
-        text = findViewById(R.id.textView2);
-        //end test
-
-        frame_layout = findViewById(R.id.frame_layout);
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        engine = new Engine(ft, floor_number, 1);
-
+    private void setTouchListener() {
         frame_layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
                 if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    engine.setDiffPos();
+                    FrameManager.setPos();
                     X = event.getX();
                     Y = event.getY();
                 }
                 if (MotionEvent.ACTION_MOVE == event.getAction()) {
-                    //test
-                    text.setText((event.getX() - X) + " " + (event.getY() - Y));
-                    //end test
-                    engine.moveMap(event.getX() - X, event.getY() - Y);
+                    FrameManager.moveMap(event.getX() - X, event.getY() - Y);
                 }
                 return true;
             }
         });
     }
 
+    private void initElement() {
+        plus_button = findViewById(R.id.scale_plus);
+        minus_button = findViewById(R.id.scale_minus);
 
+        floor_up_button = findViewById(R.id.floor_up_button);
+        floor_down_button = findViewById(R.id.floor_down_button);
+
+        frame_layout = findViewById(R.id.frame_layout);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_1).commit();
+    }
 
     private void setButtonEvents(){
         plus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.scaleMap(1);
+                FrameManager.scaleMapPlus();
             }
         });
 
         minus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.scaleMap(-1);
+                FrameManager.scaleMapMinus();
             }
         });
 
         floor_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.changeFloor(Config.UP);
+                FrameManager.upFloor();
             }
         });
 
         floor_down_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                engine.changeFloor(Config.DOWN);
+                FrameManager.downFloor();
             }
         });
     }
