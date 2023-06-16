@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private FrameLayout frame_layout;
 
+    private FragmentTransaction ft;
+
     private float X;
     private float Y;
 
@@ -64,12 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         frame_layout = findViewById(R.id.frame_layout);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        FrameManager.setFragmentTransaction(ft);
-        //закончил тут
-        ft.add(R.id.frame_layout, FragmentManager.map_complex_g_1)
-                .add(R.id.frame_layout, FragmentManager.map_complex_g_2).commit();
-        ft.hide(FragmentManager.map_complex_g_1);
+        ft = getSupportFragmentManager().beginTransaction();
+        FrameManager.setFragmentTransaction(this);
         Log.d("setFrames", "add fragments");
 //        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_1).commit();
 //        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_2).commit();

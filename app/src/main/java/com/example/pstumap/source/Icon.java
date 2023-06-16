@@ -4,6 +4,9 @@ import android.widget.ImageView;
 
 import com.example.pstumap.Config;
 
+/**
+ * This class is responsible for the icons on the floor.
+ */
 public class Icon {
 
     private ImageView icon;

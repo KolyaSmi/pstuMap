@@ -5,6 +5,11 @@ import android.util.Log;
 import com.example.pstumap.Config;
 import com.example.pstumap.source.FrameManager;
 
+/**
+ *The FragmentManager stores all fragments of the map.
+ *After all fragments are created, it gives the command to create the project structure in the FrameManager.
+ *With COUNT_FRAGMENTS in Config the number of fragments after which the signal will be transmitted is regulated.
+ */
 public abstract class FragmentManager {
 
     public static MapComplexG1 map_complex_g_1;
@@ -12,11 +17,18 @@ public abstract class FragmentManager {
 
     private static int cur_count_fragment = 0;
 
+    /**
+     *Initialize all fragments.
+     */
     public static void initFragment(){
         map_complex_g_1 = new MapComplexG1();
         map_complex_g_2 = new MapComplexG2();
     }
 
+    /**
+     *Counts how many fragments are created.
+     *Call in each fragment!
+     */
     public static void add(){
         if (cur_count_fragment < Config.COUNT_FRAGMENTS){
             cur_count_fragment++;
