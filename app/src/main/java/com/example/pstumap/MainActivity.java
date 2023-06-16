@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -64,7 +65,14 @@ public class MainActivity extends AppCompatActivity {
         frame_layout = findViewById(R.id.frame_layout);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_1).commit();
+        FrameManager.setFragmentTransaction(ft);
+        //закончил тут
+        ft.add(R.id.frame_layout, FragmentManager.map_complex_g_1)
+                .add(R.id.frame_layout, FragmentManager.map_complex_g_2).commit();
+        ft.hide(FragmentManager.map_complex_g_1);
+        Log.d("setFrames", "add fragments");
+//        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_1).commit();
+//        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_2).commit();
     }
 
     private void setButtonEvents(){

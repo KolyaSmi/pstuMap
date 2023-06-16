@@ -33,17 +33,19 @@ public class Floor {
     }
 
     public void setPos() {
-        for(Icon icon : icons){
-            icon.setPos();
-        }
+        if(icons != null)
+            for(Icon icon : icons){
+                icon.setPos();
+            }
         x = map.getX();
         y = map.getY();
     }
 
     public void scaleMap(float index){
-        for(Icon icon : icons){
-            icon.scaleIcon(index, map.getWidth());
-        }
+        if(icons != null)
+            for(Icon icon : icons){
+                icon.scaleIcon(index, map.getWidth());
+            }
         scale = Config.SCALE_STEP * index + scale;
         map.setScaleX(scale);
         map.setScaleY(scale);
@@ -51,9 +53,10 @@ public class Floor {
     }
 
     public void movMap(float dx, float dy) {
-        for(Icon icon : icons){
-            icon.movIcon(dx, dy);
-        }
+        if(icons != null)
+            for(Icon icon : icons){
+                icon.movIcon(dx, dy);
+            }
         map.setX(x + dx);
         map.setY(y + dy);
     }
