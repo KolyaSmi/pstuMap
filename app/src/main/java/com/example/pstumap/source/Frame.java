@@ -25,7 +25,7 @@ public class Frame {
      * Raises the floor by 1.
      */
     public void up() {
-        if(number_floor < floors.length)
+        if(number_floor < floors.length - 1)
             number_floor++;
     }
 
@@ -33,7 +33,7 @@ public class Frame {
      * Lowers the floor by 1.
      */
     public void down() {
-        if(number_floor >= 0){
+        if(number_floor > 0){
             number_floor--;
         }
     }
@@ -54,5 +54,4 @@ public class Frame {
     public Floor getFloor() {
         return floors[number_floor];
     }
-
 }

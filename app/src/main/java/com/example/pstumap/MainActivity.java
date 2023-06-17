@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button minus_button;
     private Button floor_up_button;
     private Button floor_down_button;
+    private Button test_button;
 
     private FrameLayout frame_layout;
 
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         floor_up_button = findViewById(R.id.floor_up_button);
         floor_down_button = findViewById(R.id.floor_down_button);
 
+        test_button = findViewById(R.id.test);
+
         frame_layout = findViewById(R.id.frame_layout);
 
         ft = getSupportFragmentManager().beginTransaction();
@@ -99,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FrameManager.downFloor();
+            }
+        });
+
+        test_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FrameManager.changeFrame();
             }
         });
     }

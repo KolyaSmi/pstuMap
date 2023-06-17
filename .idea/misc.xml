@@ -10,7 +10,8 @@
         <entry key="app/src/main/res/drawable/ic_map_complex_g_1.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/icon_cafe_test.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/test_map_3.xml" value="0.2535" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3151962280273437" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2480239868164063" />
+        <entry key="app/src/main/res/layout/fragment_map_complex_a_1.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_map_complex_g_1.xml" value="0.32135416666666666" />
         <entry key="app/src/main/res/layout/fragment_map_complex_g_2.xml" value="0.33541666666666664" />
         <entry key="app/src/main/res/layout/fragment_test_map.xml" value="0.5590553394262341" />

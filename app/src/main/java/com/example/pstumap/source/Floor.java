@@ -11,7 +11,7 @@ import com.example.pstumap.Config;
  * This class is responsible for the construction of the floor.
  * It contains the map itself, the fragment and the icons.
  */
-public class Floor {
+class Floor {
 
     private Icon[] icons;
 

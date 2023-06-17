@@ -7,7 +7,7 @@ import com.example.pstumap.Config;
 /**
  * This class is responsible for the icons on the floor.
  */
-public class Icon {
+class Icon {
 
     private ImageView icon;
 
