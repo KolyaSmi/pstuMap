@@ -20,6 +20,7 @@ public abstract class FragmentManager {
     public static ArrayList<Fragment> map_array;
 
     public static MapComplexA1 map_complex_a_1;
+    public static MapComplexA2 map_complex_a_2;
 
     public static MapComplexG1 map_complex_g_1;
     public static MapComplexG2 map_complex_g_2;
@@ -33,6 +34,8 @@ public abstract class FragmentManager {
         map_array = new ArrayList<>();
         map_complex_a_1 = new MapComplexA1();
         addMapInArray(map_complex_a_1);
+        map_complex_a_2 = new MapComplexA2();
+        addMapInArray(map_complex_a_2);
 
         map_complex_g_1 = new MapComplexG1();
         addMapInArray(map_complex_g_1);
@@ -55,7 +58,6 @@ public abstract class FragmentManager {
         }
         if (cur_count_fragment == Config.COUNT_FRAGMENTS){
             Log.d("setFrames", "setFrames" + cur_count_fragment + "");
-//            FrameManager.setFrames();
             MapManager.initMap();
         }
         Log.d("setFrames ", cur_count_fragment + "");

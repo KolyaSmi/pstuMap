@@ -15,7 +15,7 @@ class Icon {
     private float x;
     private float y;
 
-    public void setIcon(ImageView icon, float x, float y) {
+    protected void setIcon(ImageView icon, float x, float y) {
         this.icon = icon;
         this.x = x;
         this.y = y;
@@ -25,17 +25,22 @@ class Icon {
         scale = icon.getScaleX();
     }
 
-    public void setPos() {
+    protected void setPos() {
         x = icon.getX();
         y = icon.getY();
     }
 
-    public void scaleIcon(float index, float wight_map) {
+    protected void setPos(int _x, int _y) {
+        x = _x;
+        y = _y;
+    }
+
+    protected void scaleIcon(float index, float wight_map) {
         setPos();
         movIcon((Config.SCALE_STEP * wight_map / 2) * -index, (Config.SCALE_STEP * wight_map / 2) * -index);
     }
 
-    public void movIcon(float dx, float dy) {
+    protected void movIcon(float dx, float dy) {
         icon.setX(x + dx);
         icon.setY(y + dy);
     }

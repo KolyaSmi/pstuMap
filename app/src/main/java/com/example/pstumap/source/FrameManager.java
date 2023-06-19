@@ -18,10 +18,6 @@ import com.example.pstumap.fragments.FragmentManager;
 public abstract class FrameManager {
 
     private static Map map;
-//    private static Frame[] frames = new Frame[COUNT_COMPLEX];
-//
-//    private static Frame complex_a;
-//    private static Frame complex_g;
 
     private static AppCompatActivity main_activity;
 
@@ -29,47 +25,58 @@ public abstract class FrameManager {
 
     private static int cur_frame_id = 1;
 
-//    /**
-//     * setFrames is a method in which all map levels are defined and the map structure is created.
-//     */
-//    public static void setFrames() {
-//        complex_a = new Frame(1);
-//        complex_a.addFloor(FragmentManager.map_complex_a_1);
-//        complex_a.getFloor().setMap(FragmentManager.map_complex_a_1.map);
-//
-//        complex_g = new Frame(2);
-//        complex_g.addFloor(FragmentManager.map_complex_g_1);
-//        complex_g.getFloor().setMap(FragmentManager.map_complex_g_1.map);
-//        complex_g.getFloor().setIcons(FragmentManager.map_complex_g_1.icons, 300, 600);
-//
-//        complex_g.addFloor(FragmentManager.map_complex_g_2);
-//        complex_g.getFloor().setMap(FragmentManager.map_complex_g_2.map);
-//
-//        frames[0] = complex_a;
-//        frames[1] = complex_g;
-//
-//
-//        Log.d("setFrames", "init");
-//    }
-
+    /**
+     * Getting Started with the Map.
+     * @return Returns a link to the map.
+     */
     public static Map createMap() {
         map = new Map();
         return map;
     }
 
+    /**
+     * Creates a new frame on which all the floors of the building are placed.
+     * @param count_floors The number of floors in the building.
+     * @return Returns the building ID.
+     */
     public static int createFrame(int count_floors) {
         return map.addFrame(count_floors);
     }
 
+    /**
+     * Adds a floor to a building.
+     * The addition takes place one step at a time.
+     * After each added floor, you must set the other characteristics of the floor.
+     * @param id Frame ID.
+     * @param fragment Link to the fragment for further reference.
+     */
     public static void addFloor(int id, Fragment fragment){
         map.getFrame(id).addFloor(fragment);
     }
 
+    /**
+     * Assigns the desired floor picture to the current floor.
+     * @param id Frame ID.
+     * @param image A map from the desired frame is transmitted.
+     */
     public static void setImageMap(int id, ImageView image) {
         map.getFrame(id).getFloor().setMap(image);
     }
 
-    public static void setIcons(int id, ImageView[] icons, int x, int y) {
+    /**
+     * Assigns to the current floor an array of icons for that floor.
+     * The three arrays must be the same size.
+     * For example, the coordinates of the first icon (icon[0]) are x[0], y[0]
+     * @param id Frame ID.
+     * @param icons An array of floor icons.
+     * @param x An array of initial x coordinates for each icon.
+     * @param y An array of initial y coordinates for each icon.
+     */
+    public static void setIcons(int id, ImageView[] icons, float[] x, float[] y) {
+        if (icons.length != x.length || icons.length != y.length) {
+            Log.e("error", "The arrays do not match each other in the icon installation.");
+            return;
+        }
         map.getFrame(id).getFloor().setIcons(icons, x, y);
     }
 
@@ -86,12 +93,6 @@ public abstract class FrameManager {
         }
         ft.show(FragmentManager.map_complex_a_1);
         ft.commit();
-//        ft.add(R.id.frame_layout, FragmentManager.map_complex_a_1)
-//                .add(R.id.frame_layout, FragmentManager.map_complex_g_1)
-//                .add(R.id.frame_layout, FragmentManager.map_complex_g_2).commit();
-//        ft.hide(FragmentManager.map_complex_g_2);
-//        ft.hide(FragmentManager.map_complex_g_1);
-//        ft.show(FragmentManager.map_complex_a_1);
         previous_fragment = FragmentManager.map_complex_a_1;
     }
 

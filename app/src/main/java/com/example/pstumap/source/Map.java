@@ -8,18 +8,18 @@ class Map {
 
     private int id;
 
-    public Map() {
+    protected Map() {
         frames = new HashMap<>();
         id = 0;
     }
 
-    public int addFrame(int count_floors) {
+    protected int addFrame(int count_floors) {
         id++;
         frames.put(id, new Frame(count_floors));
         return id;
     }
 
-    public Frame getFrame(int frame) {
+    protected Frame getFrame(int frame) {
         return frames.get(frame);
     }
 }

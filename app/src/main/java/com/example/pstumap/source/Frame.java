@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
  * This class is responsible for one building and stores the floors.
  * This class implements methods for navigating through the floors of a building.
  */
-public class Frame {
+class Frame {
 
     private Floor[] floors;
 
@@ -16,7 +16,7 @@ public class Frame {
      * Method creates an array of floors.
      * @param count_floors number of floors in the building.
      */
-    public Frame(int count_floors) {
+    protected Frame(int count_floors) {
         floors = new Floor[count_floors];
         number_floor = -1;
     }
@@ -24,7 +24,7 @@ public class Frame {
     /**
      * Raises the floor by 1.
      */
-    public void up() {
+    protected void up() {
         if(number_floor < floors.length - 1)
             number_floor++;
     }
@@ -32,7 +32,7 @@ public class Frame {
     /**
      * Lowers the floor by 1.
      */
-    public void down() {
+    protected void down() {
         if(number_floor > 0){
             number_floor--;
         }
@@ -42,7 +42,7 @@ public class Frame {
      *Goes up one floor and creates a new floor.
      * @param fragment Link to the fragment for further reference.
      */
-    public void addFloor(Fragment fragment) {
+    protected void addFloor(Fragment fragment) {
         number_floor++;
         floors[number_floor] = new Floor(fragment);
     }
@@ -51,7 +51,7 @@ public class Frame {
      *
      * @return Transmits the current floor.
      */
-    public Floor getFloor() {
+    protected Floor getFloor() {
         return floors[number_floor];
     }
 }

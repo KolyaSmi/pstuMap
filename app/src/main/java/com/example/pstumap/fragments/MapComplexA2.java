@@ -12,29 +12,20 @@ import android.widget.ImageView;
 
 import com.example.pstumap.R;
 
-public class MapComplexG1 extends Fragment {
+public class MapComplexA2 extends Fragment {
 
     public ImageView map;
-
-    public ImageView[] icons = new ImageView[2];
-    private ImageView icon_1;
-    private ImageView icon_2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_map_complex_g_1, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_map_complex_a_2, container, false);
 
         map = rootView.findViewById(R.id.map);
 
-        icon_1 = rootView.findViewById(R.id.icon_1);
-        icon_2 = rootView.findViewById(R.id.icon_2);
-        icons[0] = icon_1;
-        icons[1] = icon_2;
-
         FragmentManager.add();
 
-        Log.d("setFrames", "create fragment 1");
+        Log.d("setFrames", "create fragment a 2");
         return rootView;
     }
 }

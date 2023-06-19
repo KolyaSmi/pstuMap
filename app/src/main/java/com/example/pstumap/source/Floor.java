@@ -1,5 +1,8 @@
 package com.example.pstumap.source;
 
+import static com.example.pstumap.Config.MAX_SCALE;
+import static com.example.pstumap.Config.MIN_SCALE;
+
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -46,11 +49,11 @@ class Floor {
      * @param x Initial coordinates x.
      * @param y Initial coordinates y.
      */
-    public void setIcons(ImageView[] dest_icons, float x, float y) {
+    public void setIcons(ImageView[] dest_icons, float[] x, float[] y) {
         icons = new Icon[dest_icons.length];
         for (int i = 0; i < dest_icons.length; i++){
             icons[i] = new Icon();
-            icons[i].setIcon(dest_icons[i], x, y);
+            icons[i].setIcon(dest_icons[i], x[i], y[i]);
         }
     }
 
@@ -71,13 +74,15 @@ class Floor {
      * @param index 1 increases the picture -1 decreases the picture.
      */
     public void scaleMap(float index){
-        if(icons != null)
-            for(Icon icon : icons){
-                icon.scaleIcon(index, map.getWidth());
-            }
-        scale = Config.SCALE_STEP * index + scale;
-        map.setScaleX(scale);
-        map.setScaleY(scale);
+        if(Config.SCALE_STEP * index + scale <= MAX_SCALE && Config.SCALE_STEP * index + scale >= MIN_SCALE) {
+            if (icons != null)
+                for (Icon icon : icons) {
+                    icon.scaleIcon(index, map.getWidth());
+                }
+            scale = Config.SCALE_STEP * index + scale;
+            map.setScaleX(scale);
+            map.setScaleY(scale);
+        }
         Log.d("scaleMap", "scale: " + scale);
     }
 
@@ -101,5 +106,9 @@ class Floor {
      */
     public Fragment getFragment() {
         return fragment;
+    }
+
+    public Icon[] getIcons() {
+        return icons;
     }
 }

@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
         ft = getSupportFragmentManager().beginTransaction();
         FrameManager.setFragmentTransaction(this);
         Log.d("setFrames", "add fragments");
-//        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_1).commit();
-//        ft.replace(R.id.frame_layout, FragmentManager.map_complex_g_2).commit();
     }
 
     private void setButtonEvents(){
