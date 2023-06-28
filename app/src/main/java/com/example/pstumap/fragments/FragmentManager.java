@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public abstract class FragmentManager {
 
     public static IconWindow icon_window;
+    public static ChangeFrameWindow change_frame_window;
 
     public static ArrayList<Fragment> map_array;
 
@@ -45,6 +46,7 @@ public abstract class FragmentManager {
 
 
         icon_window = new IconWindow();
+        change_frame_window = new ChangeFrameWindow();
     }
 
     private static void addMapInArray(Fragment fragment) {
