@@ -32,7 +32,7 @@ class Floor {
      * Creates a new floor.
      * @param _fragment Link to the fragment for further reference.
      */
-    public Floor(Fragment _fragment) {
+    protected Floor(Fragment _fragment) {
         fragment = _fragment;
     }
 
@@ -40,7 +40,7 @@ class Floor {
      * Sets the picture for the floor from the fragment.
      * @param imageView Map picture.
      */
-    public void setMap(ImageView imageView) {
+    protected void setMap(ImageView imageView) {
         map = imageView;
         scale = map.getScaleX();
     }
@@ -51,11 +51,17 @@ class Floor {
      * @param x Initial coordinates x.
      * @param y Initial coordinates y.
      */
-    public void setIcons(ImageView[] dest_icons, float[] x, float[] y) {
+    protected void setIcons(ImageView[] dest_icons, float[] x, float[] y) {
         icons = new Icon[dest_icons.length];
         for (int i = 0; i < dest_icons.length; i++){
             icons[i] = new Icon();
             icons[i].setIcon(dest_icons[i], x[i], y[i]);
+        }
+    }
+
+    protected void setDescriptionsIcons(String[] headers, String[] descriptions){
+        for (int i = 0; i < icons.length; i++){
+            icons[i].setDescription(headers[i], descriptions[i]);
         }
     }
 

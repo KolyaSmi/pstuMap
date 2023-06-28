@@ -99,6 +99,18 @@ public abstract class FrameManager {
         map.getFrame(id).getFloor().setIcons(icons, xs, ys);
     }
 
+    public static void setDescriptionsIcons(int id, String[] headers, String[] descriptions){
+        map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions);
+    }
+
+    public static void setDescriptionIcon(int id, String header, String description){
+        String[] headers = new String[1];
+        headers[0] = header;
+        String[] descriptions = new String[1];
+        descriptions[0] = description;
+        map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions);
+    }
+
     /**
      * This method goes through all fragments and adds them to the FragmentTransaction stack.
      * @param _mainActivity Transmitted in order to create a FragmentTransaction.
@@ -151,9 +163,15 @@ public abstract class FrameManager {
         previous_fragment = map.getFrame(cur_frame_id).getFloor().getFragment();
     }
 
-    public static void setFragmentInUpWindow() {
+    public static void replaceFragmentInUpWindow(Fragment fragment) {
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame_up_window, FragmentManager.icon_window).commit();
+        ft.replace(R.id.frame_up_window, fragment).commit();
+        Log.d("fragment up", "replace up window");
+    }
+
+    public static void removeFragmentInUpWindow(Fragment fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.remove(fragment).commit();
         Log.d("fragment up", "replace up window");
     }
 

@@ -19,6 +19,7 @@ public abstract class MapManager {
         addFloor(complex_a, FragmentManager.map_complex_a_2);
         setImageMap(complex_a, FragmentManager.map_complex_a_2.map);
         setIcon(complex_a, FragmentManager.map_complex_a_2.icon, 300, 300);
+        setDescriptionIcon(complex_a, "Столовая", "Какое то описание");
 
         complex_g = createFrame(2);
         addFloor(complex_g, FragmentManager.map_complex_g_1);

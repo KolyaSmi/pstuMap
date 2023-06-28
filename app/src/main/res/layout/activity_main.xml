@@ -178,7 +178,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/frame_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            android:animateLayoutChanges="true">
+
 
         </FrameLayout>
 

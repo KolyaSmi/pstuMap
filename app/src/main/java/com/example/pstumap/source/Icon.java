@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.pstumap.Config;
+import com.example.pstumap.fragments.FragmentManager;
 
 /**
  * This class is responsible for the icons on the floor.
@@ -12,6 +13,9 @@ import com.example.pstumap.Config;
 class Icon {
 
     private ImageView icon;
+
+    private String header;
+    private String description;
 
     private boolean onTouch = false;
     private float scale;
@@ -33,16 +37,24 @@ class Icon {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     if (onTouch) {
                         setScale(-1);
+                        FrameManager.removeFragmentInUpWindow(FragmentManager.icon_window);
                         onTouch = false;
                     } else {
                         setScale(1);
-                        FrameManager.setFragmentInUpWindow();
+                        FrameManager.replaceFragmentInUpWindow(FragmentManager.icon_window);
+                        FragmentManager.icon_window.text_header.setText(header);
+                        FragmentManager.icon_window.text_description.setText(description);
                         onTouch = true;
                     }
                 }
                 return true;
             }
         });
+    }
+
+    protected void setDescription(String header, String description) {
+        this.header = header;
+        this.description = description;
     }
 
     protected void setPos() {
@@ -69,5 +81,13 @@ class Icon {
     protected void movIcon(float dx, float dy) {
         icon.setX(x + dx);
         icon.setY(y + dy);
+    }
+
+    protected String getHeader(){
+        return header;
+    }
+
+    protected String getDescription(){
+        return description;
     }
 }
