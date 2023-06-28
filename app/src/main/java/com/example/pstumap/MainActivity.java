@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton minus_button;
     private ImageButton floor_up_button;
     private ImageButton floor_down_button;
-    private Button change_frame_button;
+    private ImageButton change_frame_button;
 
     private FrameLayout frame_layout;
 
