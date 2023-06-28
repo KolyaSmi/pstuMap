@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pstumap.Config;
 import com.example.pstumap.MapManager;
-import com.example.pstumap.source.FrameManager;
 
 import java.util.ArrayList;
 
@@ -16,6 +15,8 @@ import java.util.ArrayList;
  *With COUNT_FRAGMENTS in Config the number of fragments after which the signal will be transmitted is regulated.
  */
 public abstract class FragmentManager {
+
+    public static IconWindow icon_window;
 
     public static ArrayList<Fragment> map_array;
 
@@ -42,6 +43,8 @@ public abstract class FragmentManager {
         map_complex_g_2 = new MapComplexG2();
         addMapInArray(map_complex_g_2);
 
+
+        icon_window = new IconWindow();
     }
 
     private static void addMapInArray(Fragment fragment) {

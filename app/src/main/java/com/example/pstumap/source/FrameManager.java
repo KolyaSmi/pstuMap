@@ -81,6 +81,25 @@ public abstract class FrameManager {
     }
 
     /**
+     * Assigns to the current floor an array of icons for that floor.
+     * The three arrays must be the same size.
+     * For example, the coordinates of the first icon (icon[0]) are x[0], y[0]
+     * @param id Frame ID.
+     * @param icon An array of floor icons.
+     * @param x An array of initial x coordinates for each icon.
+     * @param y An array of initial y coordinates for each icon.
+     */
+    public static void setIcon(int id, ImageView icon, float x, float y) {
+        ImageView[] icons = new ImageView[1];
+        icons[0] = icon;
+        float[] xs = new float[1];
+        xs[0] = x;
+        float[] ys = new float[1];
+        ys[0] = y;
+        map.getFrame(id).getFloor().setIcons(icons, xs, ys);
+    }
+
+    /**
      * This method goes through all fragments and adds them to the FragmentTransaction stack.
      * @param _mainActivity Transmitted in order to create a FragmentTransaction.
      */
@@ -130,6 +149,12 @@ public abstract class FrameManager {
         ft.hide(previous_fragment)
                 .show(map.getFrame(cur_frame_id).getFloor().getFragment()).commit();
         previous_fragment = map.getFrame(cur_frame_id).getFloor().getFragment();
+    }
+
+    public static void setFragmentInUpWindow() {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frame_up_window, FragmentManager.icon_window).commit();
+        Log.d("fragment up", "replace up window");
     }
 
     public static void changeFrame() {

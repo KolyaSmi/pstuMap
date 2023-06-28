@@ -36,6 +36,7 @@ class Icon {
                         onTouch = false;
                     } else {
                         setScale(1);
+                        FrameManager.setFragmentInUpWindow();
                         onTouch = true;
                     }
                 }
