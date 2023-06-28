@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 
 import com.example.pstumap.Config;
+import com.example.pstumap.MainActivity;
+import com.example.pstumap.R;
 
 /**
  * This class is responsible for the construction of the floor.

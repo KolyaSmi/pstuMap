@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_1"
@@ -11,26 +12,10 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipToPadding="false"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <FrameLayout
-            android:id="@+id/frame_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </FrameLayout>
-
-<!--        <ImageView-->
+        <!--        <ImageView-->
 <!--            android:id="@+id/test_map"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -41,76 +26,130 @@
 <!--            app:srcCompat="@drawable/test_map"-->
 <!--            tools:ignore="ImageContrastCheck" />-->
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="362dp"
-            android:layout_marginTop="200dp"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/teal_200"
 
-            <Button
-                android:id="@+id/scale_plus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <Button
-                android:id="@+id/scale_minus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="124dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-            <Button
-                android:id="@+id/floor_up_button"
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="52dp"
+                android:layout_height="186dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginStart="15dp"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp">
+
+                    <ImageButton
+                        android:id="@+id/floor_up_button"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/button_white"
+                        android:elevation="8dp"
+                        android:src="@drawable/arrow_up" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="20">
+
+                    <TextView
+                        android:id="@+id/floor_number"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button_white"
+                        android:text="TextView" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="bottom">
+
+                    <ImageButton
+                        android:id="@+id/floor_down_button"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_white"
+                        android:src="@drawable/arrow_down" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:insetRight="10dp"
-                android:text="u" />
+                android:text="TextView" />
 
-            <Button
-                android:id="@+id/floor_down_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:insetLeft="10dp"
-                android:text="d" />
-        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="624dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="51dp"
+                android:layout_height="133dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/floor_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="188dp"
-            android:text="floor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="50dp">
+
+                    <ImageButton
+                        android:id="@+id/scale_plus"
+
+                        android:layout_width="51dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_white"
+                        android:src="@drawable/plus"
+
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="52dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="40">
+
+                    <ImageButton
+                        android:id="@+id/scale_minus"
+                        android:layout_width="51dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/button_white"
+                        android:src="@drawable/minus"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
