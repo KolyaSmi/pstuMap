@@ -37,13 +37,11 @@ class Icon {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     if (onTouch) {
                         setScale(-1);
-                        FrameManager.removeFragmentInUpWindow(FragmentManager.icon_window);
+                        FragmentManager.removeFragmentInUpWindow(FragmentManager.icon_window);
                         onTouch = false;
                     } else {
                         setScale(1);
-                        FrameManager.replaceFragmentInUpWindow(FragmentManager.icon_window);
-                        FragmentManager.icon_window.text_header.setText(header);
-                        FragmentManager.icon_window.text_description.setText(description);
+                        FragmentManager.replaceFragmentInUpWindow(FragmentManager.icon_window, header, description);
                         onTouch = true;
                     }
                 }

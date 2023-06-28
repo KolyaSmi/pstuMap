@@ -2,10 +2,13 @@ package com.example.pstumap.fragments;
 
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pstumap.Config;
 import com.example.pstumap.MapManager;
+import com.example.pstumap.R;
 
 import java.util.ArrayList;
 
@@ -27,7 +30,13 @@ public abstract class FragmentManager {
     public static MapComplexG1 map_complex_g_1;
     public static MapComplexG2 map_complex_g_2;
 
+    private static AppCompatActivity main_activity;
+
     private static int cur_count_fragment = 0;
+    private static Fragment previous_fragment;
+
+    private static String header;
+    private static String description;
 
     /**
      *Initialize all fragments.
@@ -51,6 +60,54 @@ public abstract class FragmentManager {
 
     private static void addMapInArray(Fragment fragment) {
         map_array.add(fragment);
+    }
+
+    /**
+     * This method goes through all fragments and adds them to the FragmentTransaction stack.
+     * @param _mainActivity Transmitted in order to create a FragmentTransaction.
+     */
+    public static void setFragmentTransaction(AppCompatActivity _mainActivity) {
+        main_activity = _mainActivity;
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        for (Fragment fragment : map_array) {
+            ft.add(R.id.frame_layout, fragment)
+                    .hide(fragment);
+        }
+        ft.show(map_array.get(map_array.size() - 1))
+            .commit();
+        previous_fragment = map_array.get(map_array.size() - 1);
+    }
+
+    public static void setVisibleFragment(Fragment cur_fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.hide(previous_fragment)
+                .show(cur_fragment).commit();
+        previous_fragment = cur_fragment;
+    }
+
+    public static void replaceFragmentInUpWindow(Fragment fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frame_up_window, fragment).commit();
+        Log.d("fragment up", "replace up window");
+    }
+
+    public static void replaceFragmentInUpWindow(Fragment fragment, String _header, String _description) {
+        header = _header;
+        description = _description;
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frame_up_window, fragment).commit();
+        Log.d("fragment up", "replace up window");
+    }
+
+    public static void setDescriptionInUpWindow(){
+        icon_window.text_header.setText(header);
+        icon_window.text_description.setText(description);
+    }
+
+    public static void removeFragmentInUpWindow(Fragment fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.remove(fragment).commit();
+        Log.d("fragment up", "replace up window");
     }
 
     /**

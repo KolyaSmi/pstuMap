@@ -26,6 +26,8 @@ public class IconWindow extends Fragment {
         text_header = rootView.findViewById(R.id.text_header);
         text_description = rootView.findViewById(R.id.text_description);
 
+        FragmentManager.setDescriptionInUpWindow();
+
         return rootView;
     }
 }

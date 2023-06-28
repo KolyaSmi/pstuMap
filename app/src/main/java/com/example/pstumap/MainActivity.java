@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.pstumap.fragments.ChangeFrameWindow;
 import com.example.pstumap.fragments.FragmentManager;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton floor_up_button;
     private ImageButton floor_down_button;
     private ImageButton change_frame_button;
+
+    private TextView floor_number;
 
     private FrameLayout frame_layout;
 
@@ -67,12 +70,14 @@ public class MainActivity extends AppCompatActivity {
         floor_up_button = findViewById(R.id.floor_up_button);
         floor_down_button = findViewById(R.id.floor_down_button);
 
+        floor_number = findViewById(R.id.floor_number);
+
         change_frame_button = findViewById(R.id.change_frame_button);
 
         frame_layout = findViewById(R.id.frame_layout);
 
         ft = getSupportFragmentManager().beginTransaction();
-        FrameManager.setFragmentTransaction(this);
+        FragmentManager.setFragmentTransaction(this);
         Log.d("setFrames", "add fragments");
     }
 
@@ -94,22 +99,21 @@ public class MainActivity extends AppCompatActivity {
         floor_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FrameManager.upFloor();
+               floor_number.setText(FrameManager.upFloor() + "");
             }
         });
 
         floor_down_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FrameManager.downFloor();
+                floor_number.setText(FrameManager.downFloor() + "");
             }
         });
 
         change_frame_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.frame_up_window, FragmentManager.change_frame_window).commit();
+                FragmentManager.replaceFragmentInUpWindow(FragmentManager.change_frame_window);
             }
         });
     }

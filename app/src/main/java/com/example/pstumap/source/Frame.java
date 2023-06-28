@@ -64,4 +64,8 @@ class Frame {
     protected Floor getFloor() {
         return floors[number_floor];
     }
+
+    protected int getNumberFloor() {
+        return number_floor;
+    }
 }

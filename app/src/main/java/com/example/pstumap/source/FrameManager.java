@@ -100,6 +100,10 @@ public abstract class FrameManager {
     }
 
     public static void setDescriptionsIcons(int id, String[] headers, String[] descriptions){
+        if (headers.length != descriptions.length) {
+            Log.e("error", "The arrays do not match each other in the icon description.");
+            return;
+        }
         map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions);
     }
 
@@ -109,22 +113,6 @@ public abstract class FrameManager {
         String[] descriptions = new String[1];
         descriptions[0] = description;
         map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions);
-    }
-
-    /**
-     * This method goes through all fragments and adds them to the FragmentTransaction stack.
-     * @param _mainActivity Transmitted in order to create a FragmentTransaction.
-     */
-    public static void setFragmentTransaction(AppCompatActivity _mainActivity) {
-        main_activity = _mainActivity;
-        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        for (Fragment fragment : FragmentManager.map_array) {
-            ft.add(R.id.frame_layout, fragment);
-            ft.hide(fragment);
-        }
-        ft.show(FragmentManager.map_complex_a_1);
-        ft.commit();
-        previous_fragment = FragmentManager.map_complex_a_1;
     }
 
     public static void scaleMapPlus() {
@@ -138,14 +126,16 @@ public abstract class FrameManager {
         Log.d("scaleMap", "index " + (-Config.SCALE_STEP));
     }
 
-    public static void upFloor() {
+    public static int upFloor() {
         map.getFrame(cur_frame_id).up();
-        setVisibleFragment();
+        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+        return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
-    public static void downFloor() {
+    public static int downFloor() {
         map.getFrame(cur_frame_id).down();
-        setVisibleFragment();
+        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+        return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
     public static void moveMap(float dx, float dy) {
@@ -156,31 +146,12 @@ public abstract class FrameManager {
         map.getFrame(cur_frame_id).getFloor().setPos();
     }
 
-    private static void setVisibleFragment() {
-        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.hide(previous_fragment)
-                .show(map.getFrame(cur_frame_id).getFloor().getFragment()).commit();
-        previous_fragment = map.getFrame(cur_frame_id).getFloor().getFragment();
-    }
-
-    public static void replaceFragmentInUpWindow(Fragment fragment) {
-        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame_up_window, fragment).commit();
-        Log.d("fragment up", "replace up window");
-    }
-
-    public static void removeFragmentInUpWindow(Fragment fragment) {
-        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.remove(fragment).commit();
-        Log.d("fragment up", "replace up window");
-    }
-
     public static void changeFrame() {
         if (cur_frame_id == 1) {
             cur_frame_id = 2;
         }else if (cur_frame_id == 2) {
             cur_frame_id = 1;
         }
-        setVisibleFragment();
+        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
     }
 }
