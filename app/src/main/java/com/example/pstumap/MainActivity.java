@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
+import com.example.pstumap.fragments.ChangeFrameWindow;
 import com.example.pstumap.fragments.FragmentManager;
 import com.example.pstumap.fragments.MapComplexG1;
 import com.example.pstumap.source.FrameManager;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton minus_button;
     private ImageButton floor_up_button;
     private ImageButton floor_down_button;
+    private Button change_frame_button;
 
     private FrameLayout frame_layout;
 
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         floor_up_button = findViewById(R.id.floor_up_button);
         floor_down_button = findViewById(R.id.floor_down_button);
 
+        change_frame_button = findViewById(R.id.change_frame_button);
 
         frame_layout = findViewById(R.id.frame_layout);
 
@@ -99,6 +102,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FrameManager.downFloor();
+            }
+        });
+
+        change_frame_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.frame_up_window, FragmentManager.change_frame_window).commit();
             }
         });
     }

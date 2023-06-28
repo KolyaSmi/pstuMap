@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable-v24/test_map.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/arrow_down.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/arrow_up.xml" value="0.2985" />
+        <entry key="app/src/main/res/drawable/back_button_in_up_window.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/back_up_window.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/button_white.xml" value="0.2985" />
@@ -19,7 +20,8 @@
         <entry key="app/src/main/res/drawable/minus.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/test_map_3.xml" value="0.2535" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2480239868164063" />
-        <entry key="app/src/main/res/layout/fragment_change_frame_window.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_change_frame_window.xml" value="0.37190653483072916" />
+        <entry key="app/src/main/res/layout/fragment_icon_window.xml" value="0.33541666666666664" />
         <entry key="app/src/main/res/layout/fragment_map_complex_a_1.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_map_complex_a_2.xml" value="0.28296433600826554" />
         <entry key="app/src/main/res/layout/fragment_map_complex_g_1.xml" value="0.32135416666666666" />
