@@ -82,12 +82,17 @@ class Floor {
      * @param index 1 increases the picture -1 decreases the picture.
      */
     public void scaleMap(float index){
-        if(Config.SCALE_STEP * index + scale <= MAX_SCALE && Config.SCALE_STEP * index + scale >= MIN_SCALE) {
+        if(Config.SCALE_STEP  * index + scale <= MAX_SCALE && Config.SCALE_STEP * index + scale >= MIN_SCALE) {
             if (icons != null)
                 for (Icon icon : icons) {
-                    icon.scaleIcon(index, map.getWidth());
+                    icon.scaleIcon(index, map.getWidth(), map.getHeight(), map.getX(), map.getY());
                 }
-            scale = Config.SCALE_STEP * index + scale;
+
+            if(index > 0)
+                scale = scale * (1 + Config.SCALE_STEP);
+            else
+                scale = scale / (1 + Config.SCALE_STEP);
+
             map.setScaleX(scale);
             map.setScaleY(scale);
         }
@@ -106,6 +111,7 @@ class Floor {
             }
         map.setX(x + dx);
         map.setY(y + dy);
+        Log.d("move map", "x: " + map.getX() + " y: " + map.getY());
     }
 
     /**

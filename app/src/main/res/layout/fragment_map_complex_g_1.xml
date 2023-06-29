@@ -15,7 +15,7 @@
         android:src="@drawable/ic_map_complex_g_1" />
 
     <ImageView
-        android:id="@+id/icon_1"
+        android:id="@+id/frame"
         android:layout_width="27dp"
         android:layout_height="27dp"
         android:src="@drawable/icon_cafe" />

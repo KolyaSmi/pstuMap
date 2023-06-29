@@ -1,5 +1,6 @@
 package com.example.pstumap.source;
 
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ class Icon {
 
     private boolean onTouch = false;
     private float scale;
+    private float cur_scale;
     private float x;
     private float y;
 
@@ -30,6 +32,7 @@ class Icon {
         this.icon.setX(x);
         this.icon.setY(y);
         scale = icon.getScaleX();
+        cur_scale = icon.getScaleX();
 
         this.icon.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -65,9 +68,23 @@ class Icon {
         y = _y;
     }
 
-    protected void scaleIcon(float index, float wight_map) {
+    protected void scaleIcon(float index, float wight_map, float height_map, float x_map, float y_map) {
+
+        scale = scale + Config.SCALE_STEP * index;
+
+        float cX = x_map + (wight_map)/2;
+        float cY = y_map + (height_map)/2;
+
+        if(index > 0) {
+            icon.setX(cX + ((icon.getX() - cX) * (1 + Config.SCALE_STEP)));
+            icon.setY(cY + ((icon.getY() - cY) * (1 + Config.SCALE_STEP)));
+        }else {
+            icon.setX(cX + ((icon.getX() - cX) / (1 + Config.SCALE_STEP)));
+            icon.setY(cY + ((icon.getY() - cY) / (1 + Config.SCALE_STEP)));
+        }
         setPos();
-        movIcon((Config.SCALE_STEP * wight_map / 2) * -index, (Config.SCALE_STEP * wight_map / 2) * -index);
+
+        Log.d("scale icon", "x_map = " + x_map + " y_map = " + y_map + " w = " + wight_map + " h = " + height_map);
     }
 
     protected void setScale(int index){

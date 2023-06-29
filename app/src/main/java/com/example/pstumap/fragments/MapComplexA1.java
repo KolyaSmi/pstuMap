@@ -16,12 +16,16 @@ public class MapComplexA1 extends Fragment {
 
     public ImageView map;
 
+    public ImageView icon_1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_map_complex_a_1, container, false);
 
         map = rootView.findViewById(R.id.map);
+
+        icon_1 = rootView.findViewById(R.id.icon_1);
 
         FragmentManager.add();
 

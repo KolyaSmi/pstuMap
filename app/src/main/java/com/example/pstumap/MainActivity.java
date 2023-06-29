@@ -51,12 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
                 if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    FrameManager.setPos();
                     X = event.getX();
                     Y = event.getY();
                 }
                 if (MotionEvent.ACTION_MOVE == event.getAction()) {
                     FrameManager.moveMap(event.getX() - X, event.getY() - Y);
+                }
+                if (MotionEvent.ACTION_UP == event.getAction()) {
+                    FrameManager.setPos();
                 }
                 return true;
             }

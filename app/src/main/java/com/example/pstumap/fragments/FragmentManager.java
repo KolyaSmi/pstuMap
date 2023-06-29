@@ -73,9 +73,9 @@ public abstract class FragmentManager {
             ft.add(R.id.frame_layout, fragment)
                     .hide(fragment);
         }
-        ft.show(map_array.get(map_array.size() - 1))
+        ft.show(map_array.get(1))
             .commit();
-        previous_fragment = map_array.get(map_array.size() - 1);
+        previous_fragment = map_array.get(1);
     }
 
     public static void setVisibleFragment(Fragment cur_fragment) {

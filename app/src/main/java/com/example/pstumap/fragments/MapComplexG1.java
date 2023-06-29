@@ -27,7 +27,7 @@ public class MapComplexG1 extends Fragment {
 
         map = rootView.findViewById(R.id.map);
 
-        icon_1 = rootView.findViewById(R.id.icon_1);
+        icon_1 = rootView.findViewById(R.id.frame);
         icon_2 = rootView.findViewById(R.id.icon_2);
         icons[0] = icon_1;
         icons[1] = icon_2;
