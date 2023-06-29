@@ -18,9 +18,8 @@ class Icon {
     private String header;
     private String description;
 
-    private boolean onTouch = false;
+    protected boolean onTouch = false;
     private float scale;
-    private float cur_scale;
     private float x;
     private float y;
 
@@ -32,7 +31,6 @@ class Icon {
         this.icon.setX(x);
         this.icon.setY(y);
         scale = icon.getScaleX();
-        cur_scale = icon.getScaleX();
 
         this.icon.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -44,6 +42,7 @@ class Icon {
                         onTouch = false;
                     } else {
                         setScale(1);
+                        FrameManager.checkOpenIcons();
                         FragmentManager.replaceFragmentInUpWindow(FragmentManager.icon_window, header, description);
                         onTouch = true;
                     }

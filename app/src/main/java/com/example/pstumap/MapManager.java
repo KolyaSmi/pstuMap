@@ -6,9 +6,9 @@ import com.example.pstumap.fragments.FragmentManager;
 
 public abstract class MapManager {
 
-    static int complex_a;
+    public static int complex_a;
 
-    static int complex_g;
+    public static int complex_g;
 
     public static void initMap() {
         createMap();
@@ -17,6 +17,7 @@ public abstract class MapManager {
         addFloor(complex_a, FragmentManager.map_complex_a_1);
         setImageMap(complex_a, FragmentManager.map_complex_a_1.map);
         setIcon(complex_a, FragmentManager.map_complex_a_1.icon_1, 0, 0);
+        setDescriptionIcon(complex_a, "1", "1");
 
         addFloor(complex_a, FragmentManager.map_complex_a_2);
         setImageMap(complex_a, FragmentManager.map_complex_a_2.map);

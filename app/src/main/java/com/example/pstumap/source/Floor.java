@@ -125,4 +125,13 @@ class Floor {
     public Icon[] getIcons() {
         return icons;
     }
+
+    public void checkOpenIcons() {
+        for (Icon icon : icons){
+            if(icon.onTouch){
+                icon.setScale(-1);
+                icon.onTouch = false;
+            }
+        }
+    }
 }

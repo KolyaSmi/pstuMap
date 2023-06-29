@@ -138,6 +138,10 @@ public abstract class FrameManager {
         return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
+    public static int getNumberFloor() {
+        return map.getFrame(cur_frame_id).getNumberFloor();
+    }
+
     public static void moveMap(float dx, float dy) {
         map.getFrame(cur_frame_id).getFloor().movMap(dx, dy);
     }
@@ -146,12 +150,17 @@ public abstract class FrameManager {
         map.getFrame(cur_frame_id).getFloor().setPos();
     }
 
-    public static void changeFrame() {
-        if (cur_frame_id == 1) {
-            cur_frame_id = 2;
-        }else if (cur_frame_id == 2) {
-            cur_frame_id = 1;
-        }
+    public static void changeFrame(int frame_id) {
+//        if (cur_frame_id == 1) {
+//            cur_frame_id = 2;
+//        }else if (cur_frame_id == 2) {
+//            cur_frame_id = 1;
+//        }
+        cur_frame_id = frame_id;
         FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+    }
+
+    public static void checkOpenIcons() {
+        map.getFrame(cur_frame_id).getFloor().checkOpenIcons();
     }
 }

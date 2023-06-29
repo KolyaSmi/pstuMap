@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton floor_down_button;
     private ImageButton change_frame_button;
 
-    private TextView floor_number;
+    public TextView floor_number;
 
     private FrameLayout frame_layout;
 
@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         floor_down_button = findViewById(R.id.floor_down_button);
 
         floor_number = findViewById(R.id.floor_number);
+        floor_number.setText(1 + "");
 
         change_frame_button = findViewById(R.id.change_frame_button);
 
