@@ -15,15 +15,33 @@
         android:src="@drawable/ic_map_complex_g_1" />
 
     <ImageView
-        android:id="@+id/frame"
-        android:layout_width="27dp"
-        android:layout_height="27dp"
-        android:src="@drawable/icon_cafe" />
+        android:id="@+id/icon_wc_woman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_wc_woman" />
 
     <ImageView
-        android:id="@+id/icon_2"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
-        android:src="@drawable/icon_cafe" />
+        android:id="@+id/icon_caffe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_caffe" />
+
+    <ImageView
+        android:id="@+id/icon_stairs_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_stairs" />
+
+    <ImageView
+        android:id="@+id/icon_stairs_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_stairs" />
+
+    <ImageView
+        android:id="@+id/icon_stairs_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_stairs" />
 
 </FrameLayout>

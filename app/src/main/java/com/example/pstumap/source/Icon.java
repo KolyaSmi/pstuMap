@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.pstumap.Config;
+import com.example.pstumap.R;
 import com.example.pstumap.fragments.FragmentManager;
 
 /**
@@ -17,6 +18,7 @@ class Icon {
 
     private String header;
     private String description;
+    private int image_id;
 
     protected boolean onTouch = false;
     private float scale;
@@ -32,6 +34,10 @@ class Icon {
         this.icon.setY(y);
         scale = icon.getScaleX();
 
+        header = "Заголовок";
+        description = "Описание";
+        image_id = R.drawable.default_image_icon;
+
         this.icon.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -43,7 +49,7 @@ class Icon {
                     } else {
                         setScale(1);
                         FrameManager.checkOpenIcons();
-                        FragmentManager.replaceFragmentInUpWindow(FragmentManager.icon_window, header, description);
+                        FragmentManager.replaceFragmentInUpWindow(FragmentManager.icon_window, header, description, image_id);
                         onTouch = true;
                     }
                 }
@@ -52,9 +58,10 @@ class Icon {
         });
     }
 
-    protected void setDescription(String header, String description) {
+    protected void setDescription(String header, String description, int image_id) {
         this.header = header;
         this.description = description;
+        this.image_id = image_id;
     }
 
     protected void setPos() {

@@ -59,9 +59,9 @@ class Floor {
         }
     }
 
-    protected void setDescriptionsIcons(String[] headers, String[] descriptions){
+    protected void setDescriptionsIcons(String[] headers, String[] descriptions, int[] images_id){
         for (int i = 0; i < icons.length; i++){
-            icons[i].setDescription(headers[i], descriptions[i]);
+            icons[i].setDescription(headers[i], descriptions[i], images_id[i]);
         }
     }
 

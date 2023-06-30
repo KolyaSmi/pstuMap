@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pstumap.R;
@@ -17,6 +18,8 @@ public class IconWindow extends Fragment {
     public TextView text_header;
     public TextView text_description;
 
+    public ImageView image;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,6 +28,9 @@ public class IconWindow extends Fragment {
 
         text_header = rootView.findViewById(R.id.text_header);
         text_description = rootView.findViewById(R.id.text_description);
+
+        image = rootView.findViewById(R.id.imageView);
+//        image.setImageResource(R.drawable.test_image);
 
         FragmentManager.setDescriptionInUpWindow();
 

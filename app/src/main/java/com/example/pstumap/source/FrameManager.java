@@ -99,20 +99,22 @@ public abstract class FrameManager {
         map.getFrame(id).getFloor().setIcons(icons, xs, ys);
     }
 
-    public static void setDescriptionsIcons(int id, String[] headers, String[] descriptions){
+    public static void setDescriptionsIcons(int id, String[] headers, String[] descriptions, int[] images_id){
         if (headers.length != descriptions.length) {
             Log.e("error", "The arrays do not match each other in the icon description.");
             return;
         }
-        map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions);
+        map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions, images_id);
     }
 
-    public static void setDescriptionIcon(int id, String header, String description){
+    public static void setDescriptionIcon(int id, String header, String description, int image_id){
         String[] headers = new String[1];
         headers[0] = header;
         String[] descriptions = new String[1];
         descriptions[0] = description;
-        map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions);
+        int[] images_id = new int[1];
+        images_id[0] = image_id;
+        map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions, images_id);
     }
 
     public static void scaleMapPlus() {

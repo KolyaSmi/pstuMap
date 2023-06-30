@@ -38,6 +38,7 @@ public abstract class FragmentManager {
 
     private static String header;
     private static String description;
+    private static int image_id;
 
     /**
      *Initialize all fragments.
@@ -93,9 +94,10 @@ public abstract class FragmentManager {
         Log.d("fragment up", "replace up window");
     }
 
-    public static void replaceFragmentInUpWindow(Fragment fragment, String _header, String _description) {
+    public static void replaceFragmentInUpWindow(Fragment fragment, String _header, String _description, int _image_id) {
         header = _header;
         description = _description;
+        image_id = _image_id;
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frame_up_window, fragment).commit();
         Log.d("fragment up", "replace up window");
@@ -104,6 +106,7 @@ public abstract class FragmentManager {
     public static void setDescriptionInUpWindow(){
         icon_window.text_header.setText(header);
         icon_window.text_description.setText(description);
+        icon_window.image.setImageResource(image_id);
     }
 
     public static void removeFragmentInUpWindow(Fragment fragment) {

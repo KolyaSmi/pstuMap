@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private FragmentTransaction ft;
 
+    private boolean onClick;
+
     private float X;
     private float Y;
 
@@ -79,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         frame_layout = findViewById(R.id.frame_layout);
 
+        onClick = false;
+
         ft = getSupportFragmentManager().beginTransaction();
         FragmentManager.setFragmentTransaction(this);
         Log.d("setFrames", "add fragments");
@@ -116,7 +120,15 @@ public class MainActivity extends AppCompatActivity {
         change_frame_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager.replaceFragmentInUpWindow(FragmentManager.change_frame_window);
+
+                FrameManager.checkOpenIcons();
+                if(onClick) {
+                    FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
+                    onClick = false;
+                }else {
+                    FragmentManager.replaceFragmentInUpWindow(FragmentManager.change_frame_window);
+                    onClick = true;
+                }
             }
         });
     }
