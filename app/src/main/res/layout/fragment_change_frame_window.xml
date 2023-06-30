@@ -18,30 +18,73 @@
             android:id="@+id/ledge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
             android:layout_marginLeft="170dp"
+            android:paddingBottom="8dp"
             android:src="@drawable/minus" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Комплекс" />
+            android:layout_gravity="center"
+            android:fontFamily="@font/ubuntu"
+            android:text="Комплекс"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="5">
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1">
 
                 <Button
                     android:id="@+id/change_complex_a_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/back_button_in_up_window"
-                    android:text="Button" />
+                    android:elevation="4sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="Корпус А"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/change_complex_g_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/blocked_back_button_in_up_window"
+                    android:fontFamily="@font/ubuntu"
+                    android:foreground="@drawable/blocked_back_button_in_up_window"
+                    android:text="КОРПУС Б"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/change_complex_a_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_button_in_up_window"
+                    android:elevation="4sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="Корпус В"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/change_complex_g_button"
@@ -49,17 +92,31 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
                     android:background="@drawable/back_button_in_up_window"
-                    android:text="Button" />
+                    android:fontFamily="@font/ubuntu"
+                    android:text="КОРПУС Г"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableLayout>
+                <Button
+                    android:id="@+id/change_complex_a_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_button_in_up_window"
+                    android:elevation="4sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="Корпус Д"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+            </TableRow>
+
+        </LinearLayout>
 
     </LinearLayout>
 

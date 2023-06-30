@@ -93,14 +93,22 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="20">
 
-                    <TextView
-                        android:id="@+id/floor_number"
+                    <ImageButton
+                        android:id="@+id/imageButton"
                         android:layout_width="52dp"
                         android:layout_height="52dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/button_white"
+                        android:background="@drawable/button_white" />
+
+                    <TextView
+                        android:id="@+id/floor_number"
+                        android:layout_width="14dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/ubuntu"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
 
                 </FrameLayout>
 
