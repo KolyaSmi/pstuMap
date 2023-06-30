@@ -36,14 +36,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <Button
+                <ImageButton
                     android:id="@+id/change_complex_a_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/back_button_in_up_window"
                     android:text="Button" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/change_complex_g_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

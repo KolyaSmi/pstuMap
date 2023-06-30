@@ -35,6 +35,7 @@ public abstract class FragmentManager {
 
     private static int cur_count_fragment = 0;
     private static Fragment previous_fragment;
+    private static Fragment des_icon_fragment;
 
     private static String header;
     private static String description;
@@ -99,7 +100,8 @@ public abstract class FragmentManager {
         description = _description;
         image_id = _image_id;
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame_up_window, fragment).commit();
+        ft.hide(change_frame_window).add(R.id.frame_up_window, fragment).show(fragment).commit();
+        des_icon_fragment = fragment;
         Log.d("fragment up", "replace up window");
     }
 
@@ -112,6 +114,24 @@ public abstract class FragmentManager {
     public static void removeFragmentInUpWindow(Fragment fragment) {
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
         ft.remove(fragment).commit();
+        Log.d("fragment up", "replace up window");
+    }
+
+    public static void hideFragmentInUpWindow(Fragment fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.hide(fragment).commit();
+        Log.d("fragment up", "replace up window");
+    }
+
+    public static void showFragmentInUpWindow(Fragment fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.remove(des_icon_fragment).show(fragment).commit();
+        Log.d("fragment up", "replace up window");
+    }
+
+    public static void addFragmentInUpWindow(Fragment fragment) {
+        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.frame_up_window ,fragment).hide(fragment).commit();
         Log.d("fragment up", "replace up window");
     }
 
