@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ActionMenuView;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.example.pstumap.MainActivity;
 import com.example.pstumap.MapManager;
@@ -20,6 +23,10 @@ public class ChangeFrameWindow extends Fragment {
 
     private Button complex_a_button;
     private Button complex_g_button;
+
+    public ImageView ledge;
+
+    public float y;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +48,16 @@ public class ChangeFrameWindow extends Fragment {
             @Override
             public void onClick(View view) {
                 FrameManager.changeFrame(MapManager.complex_g);
+            }
+        });
+
+        ledge = rootView.findViewById(R.id.ledge);
+
+        ledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
+                MainActivity.onClick = false;
             }
         });
 

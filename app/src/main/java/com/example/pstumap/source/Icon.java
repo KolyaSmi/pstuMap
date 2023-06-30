@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.pstumap.Config;
+import com.example.pstumap.MainActivity;
 import com.example.pstumap.R;
 import com.example.pstumap.fragments.FragmentManager;
 
@@ -50,6 +51,7 @@ class Icon {
                         setScale(1);
                         FrameManager.checkOpenIcons();
                         FragmentManager.replaceFragmentInUpWindow(FragmentManager.icon_window, header, description, image_id);
+                        MainActivity.onClick = false;
                         onTouch = true;
                     }
                 }

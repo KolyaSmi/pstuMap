@@ -175,11 +175,11 @@
         <FrameLayout
             android:id="@+id/frame_up_window"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
             app:layout_constraintBottom_toBottomOf="@+id/frame_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:animateLayoutChanges="true">
+            app:layout_constraintStart_toStartOf="parent">
 
 
         </FrameLayout>

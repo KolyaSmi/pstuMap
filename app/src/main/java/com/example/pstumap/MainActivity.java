@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pstumap.fragments.ChangeFrameWindow;
@@ -28,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
     public TextView floor_number;
 
     private FrameLayout frame_layout;
+    private static FrameLayout frame_up_window;
 
     private FragmentTransaction ft;
 
-    private boolean onClick;
+    public static boolean onClick;
 
     private float X;
     private float Y;
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         change_frame_button = findViewById(R.id.change_frame_button);
 
         frame_layout = findViewById(R.id.frame_layout);
+        frame_up_window = findViewById(R.id.frame_up_window);
 
         onClick = false;
 
@@ -131,5 +134,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public static FrameLayout getFrameUpWindow(){
+        return frame_up_window;
     }
 }
