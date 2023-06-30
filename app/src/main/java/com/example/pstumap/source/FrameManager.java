@@ -158,6 +158,7 @@ public abstract class FrameManager {
 //        }
         cur_frame_id = frame_id;
         FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+        FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
     }
 
     public static void checkOpenIcons() {

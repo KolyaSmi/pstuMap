@@ -87,9 +87,13 @@ class Icon {
     }
 
     protected void setScale(int index){
-        float scale = icon.getScaleX() + (index * 1.3f);
+        float scale = icon.getScaleX() + (index * 0.4f);
         icon.setScaleX(scale);
         icon.setScaleY(scale);
+        if(index > 0)
+            icon.setY(icon.getY() + (1 - (index * 1.4f)) * icon.getHeight()/2);
+        else
+            icon.setY(icon.getY() - (1 - (-index * 1.4f)) * icon.getHeight()/2);
     }
 
     protected void movIcon(float dx, float dy) {
