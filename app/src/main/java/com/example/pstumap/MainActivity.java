@@ -3,7 +3,6 @@ package com.example.pstumap;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -89,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
         ft = getSupportFragmentManager().beginTransaction();
         FragmentManager.setFragmentTransaction(this);
-        FragmentManager.addFragmentInUpWindow(FragmentManager.change_frame_window);
         Log.d("setFrames", "add fragments");
     }
 
@@ -125,12 +123,13 @@ public class MainActivity extends AppCompatActivity {
         change_frame_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 FrameManager.checkOpenIcons();
                 if(onClick) {
-                    FragmentManager.hideFragmentInUpWindow(FragmentManager.change_frame_window);
+                    FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
                     onClick = false;
                 }else {
-                    FragmentManager.showFragmentInUpWindow(FragmentManager.change_frame_window);
+                    FragmentManager.replaceFragmentInUpWindow(FragmentManager.change_frame_window);
                     onClick = true;
                 }
             }
