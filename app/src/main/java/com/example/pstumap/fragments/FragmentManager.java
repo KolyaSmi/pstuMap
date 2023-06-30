@@ -29,6 +29,7 @@ public abstract class FragmentManager {
 
     public static MapComplexG1 map_complex_g_1;
     public static MapComplexG2 map_complex_g_2;
+    public static MapComplexG3 map_complex_g_3;
 
     private static AppCompatActivity main_activity;
 
@@ -52,7 +53,8 @@ public abstract class FragmentManager {
         addMapInArray(map_complex_g_1);
         map_complex_g_2 = new MapComplexG2();
         addMapInArray(map_complex_g_2);
-
+        map_complex_g_3 = new MapComplexG3();
+        addMapInArray(map_complex_g_3);
 
         icon_window = new IconWindow();
         change_frame_window = new ChangeFrameWindow();

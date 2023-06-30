@@ -28,7 +28,12 @@ public abstract class MapManager {
         addFloor(complex_g, FragmentManager.map_complex_g_1);
         setImageMap(complex_g, FragmentManager.map_complex_g_1.map);
         setIcons(complex_g, FragmentManager.map_complex_g_1.icons, new float[]{300, 300}, new float[]{600, 100});
+
         addFloor(complex_g, FragmentManager.map_complex_g_2);
         setImageMap(complex_g, FragmentManager.map_complex_g_2.map);
+
+        addFloor(complex_g, FragmentManager.map_complex_g_3);
+        setImageMap(complex_g, FragmentManager.map_complex_g_3.map);
+        setIcons(complex_g, FragmentManager.map_complex_g_3.icons, new float[]{38, 42, 173, 15, 35, 28}, new float[]{71, 938, 413, 806, 880, 12});
     }
 }

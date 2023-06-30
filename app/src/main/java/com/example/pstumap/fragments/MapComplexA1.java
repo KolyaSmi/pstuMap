@@ -25,7 +25,7 @@ public class MapComplexA1 extends Fragment {
 
         map = rootView.findViewById(R.id.map);
 
-        icon_1 = rootView.findViewById(R.id.icon_1);
+        icon_1 = rootView.findViewById(R.id.icon_wc_woman);
 
         FragmentManager.add();
 
