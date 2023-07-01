@@ -22,7 +22,7 @@ public abstract class MapManager {
         addFloor(complex_a, FragmentManager.map_complex_a_2);
         setImageMap(complex_a, FragmentManager.map_complex_a_2.map);
         setIcon(complex_a, FragmentManager.map_complex_a_2.icon, 170, 70);
-        setDescriptionIcon(complex_a, "Мужской туалет", "Самый лучший туалет на комплексе.", R.drawable.test_image_2);
+        setDescriptionIcon(complex_a, "Мужской туалет", "тут можна пописять).", R.drawable.test_image_2);
 
         complex_g = createFrame(3);
         addFloor(complex_g, FragmentManager.map_complex_g_1);

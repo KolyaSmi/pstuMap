@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -121,8 +122,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         change_frame_button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                
 
                 FrameManager.checkOpenIcons();
                 if(onClick) {
