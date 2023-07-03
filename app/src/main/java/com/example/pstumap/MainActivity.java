@@ -1,15 +1,12 @@
 package com.example.pstumap;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pstumap.fragments.FragmentManager;
@@ -25,15 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     public TextView floor_number;
 
-    private FrameLayout frame_layout;
     private static FrameLayout frame_up_window;
 
-    private FragmentTransaction ft;
-
     public static boolean onClick;
-
-    private float X;
-    private float Y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,27 +34,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager.initFragment();
 
         initElement();
-        setTouchListener();
         setButtonEvents();
-    }
-
-    private void setTouchListener() {
-//        frame_layout.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent event) {
-//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-//                    X = event.getX();
-//                    Y = event.getY();
-//                }
-//                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-//                    FrameManager.moveMap(event.getX() - X, event.getY() - Y);
-//                }
-//                if (MotionEvent.ACTION_UP == event.getAction()) {
-//                    FrameManager.setPos();
-//                }
-//                return true;
-//            }
-//        });
     }
 
     private void initElement() {
@@ -78,12 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
         change_frame_button = findViewById(R.id.change_frame_button);
 
-        frame_layout = findViewById(R.id.frame_layout);
         frame_up_window = findViewById(R.id.frame_up_window);
 
         onClick = false;
 
-        ft = getSupportFragmentManager().beginTransaction();
         FragmentManager.setFragmentTransaction(this);
         Log.d("setFrames", "add fragments");
     }

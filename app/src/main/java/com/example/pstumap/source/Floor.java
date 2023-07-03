@@ -11,11 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import androidx.fragment.app.Fragment;
-
 import com.example.pstumap.Config;
-import com.example.pstumap.MainActivity;
-import com.example.pstumap.R;
 import com.example.pstumap.fragments.FragmentManager;
 
 /**
@@ -170,10 +166,6 @@ class Floor {
             }
         }
         map.setVisibility(View.INVISIBLE);
-    }
-
-    public Icon[] getIcons() {
-        return icons;
     }
 
     public void checkOpenIcons() {

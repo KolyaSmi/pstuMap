@@ -20,10 +20,6 @@ public abstract class FrameManager {
 
     private static Map map;
 
-    private static AppCompatActivity main_activity;
-
-    private static Fragment previous_fragment;
-
     private static int cur_frame_id = 1;
 
     /**
@@ -54,15 +50,6 @@ public abstract class FrameManager {
     public static void addFloor(int id, int map_id){
         map.getFrame(id).addFloor(map_id);
     }
-
-//    /**
-//     * Assigns the desired floor picture to the current floor.
-//     * @param id Frame ID.
-//     * @param image A map from the desired frame is transmitted.
-//     */
-//    public static void setImageMap(int id, ImageView image) {
-//        map.getFrame(id).getFloor().setMap(image);
-//    }
 
     /**
      * Assigns to the current floor an array of icons for that floor.
@@ -152,7 +139,10 @@ public abstract class FrameManager {
     }
 
     public static void changeFrame(int frame_id) {
+        map.getFrame(cur_frame_id).getFloor().hide();
         cur_frame_id = frame_id;
+        map.getFrame(cur_frame_id).getFloor().show();
+        FragmentManager.hideFragment(FragmentManager.change_frame_window);
 //        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
 //        FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
 

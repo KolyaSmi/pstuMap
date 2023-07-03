@@ -3,7 +3,6 @@ package com.example.pstumap.source;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -133,13 +132,5 @@ class Icon {
 
     protected void hide() {
         icon.setVisibility(View.INVISIBLE);
-    }
-
-    protected String getHeader(){
-        return header;
-    }
-
-    protected String getDescription(){
-        return description;
     }
 }

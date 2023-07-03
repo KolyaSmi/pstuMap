@@ -2,11 +2,6 @@ package com.example.pstumap.source;
 
 import android.widget.FrameLayout;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.pstumap.MainActivity;
-import com.example.pstumap.R;
-
 /**
  * This class is responsible for one building and stores the floors.
  * This class implements methods for navigating through the floors of a building.
