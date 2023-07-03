@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pstumap.Config;
+import com.example.pstumap.MainActivity;
 import com.example.pstumap.R;
 import com.example.pstumap.fragments.FragmentManager;
 
@@ -143,9 +144,7 @@ public abstract class FrameManager {
         cur_frame_id = frame_id;
         map.getFrame(cur_frame_id).getFloor().show();
         FragmentManager.hideFragment(FragmentManager.change_frame_window);
-//        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
-//        FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
-
+        MainActivity.onClick = false;
     }
 
     public static void checkOpenIcons() {

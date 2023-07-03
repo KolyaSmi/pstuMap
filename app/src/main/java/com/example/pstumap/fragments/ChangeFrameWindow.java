@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ActionMenuView;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.pstumap.MainActivity;
@@ -41,6 +42,8 @@ public class ChangeFrameWindow extends Fragment {
             @Override
             public void onClick(View view) {
                 FrameManager.changeFrame(MapManager.complex_a);
+                complex_a_button.setBackgroundResource(R.drawable.blocked_back_button_in_up_window);
+                complex_g_button.setBackgroundResource(R.drawable.back_button_in_up_window);
             }
         });
 
@@ -48,6 +51,8 @@ public class ChangeFrameWindow extends Fragment {
             @Override
             public void onClick(View view) {
                 FrameManager.changeFrame(MapManager.complex_g);
+                complex_g_button.setBackgroundResource(R.drawable.blocked_back_button_in_up_window);
+                complex_a_button.setBackgroundResource(R.drawable.back_button_in_up_window);
             }
         });
 
