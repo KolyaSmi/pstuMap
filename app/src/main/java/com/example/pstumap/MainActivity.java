@@ -125,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
 
                 FrameManager.checkOpenIcons();
                 if(onClick) {
-                    FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
+                    FragmentManager.hideFragment(FragmentManager.change_frame_window);
                     onClick = false;
                 }else {
-                    FragmentManager.replaceFragmentInUpWindow(FragmentManager.change_frame_window);
+                    FragmentManager.showFragment(FragmentManager.change_frame_window);
                     onClick = true;
                 }
             }

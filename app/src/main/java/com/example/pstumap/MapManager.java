@@ -21,7 +21,8 @@ public abstract class MapManager {
         addFloor(complex_a, R.drawable.map_complex_a_1);
 
         addFloor(complex_a, R.drawable.map_complex_a_2);
-        setIcon(complex_a, R.drawable.icon_caffe, 170, 70);
+        setIcons(complex_a, new int[]{R.drawable.icon_caffe, R.drawable.icon_caffe}, new float[]{170, 300}, new float[]{70, 70});
+        setDescriptionIcon(complex_a, "Лестница", "Не очень удобная лестница." , R.drawable.test_image);
 
         setVisibleFloor();
 //        setImageMap(complex_a, FragmentManager.map_fragment.map);

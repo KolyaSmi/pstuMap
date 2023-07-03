@@ -60,12 +60,14 @@ class Icon {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     if (onTouch) {
                         setScale(-1);
-                        FragmentManager.removeFragmentInUpWindow(FragmentManager.icon_window);
+                        FragmentManager.hideFragment(FragmentManager.icon_window);
                         onTouch = false;
                     } else {
                         setScale(1);
+                        FragmentManager.checkOpenChangeWindow();
                         FrameManager.checkOpenIcons();
-                        FragmentManager.replaceFragmentInUpWindow(FragmentManager.icon_window, header, description, image_id);
+                        FragmentManager.setDescriptionFragment(header, description, image_id);
+                        FragmentManager.showFragment(FragmentManager.icon_window);
                         MainActivity.onClick = false;
                         onTouch = true;
                     }

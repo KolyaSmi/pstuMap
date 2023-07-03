@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pstumap.Config;
+import com.example.pstumap.MainActivity;
 import com.example.pstumap.MapManager;
 import com.example.pstumap.R;
 
@@ -42,22 +43,6 @@ public abstract class FragmentManager {
         change_frame_window = new ChangeFrameWindow();
     }
 
-//    /**
-//     * This method goes through all fragments and adds them to the FragmentTransaction stack.
-//     * @param _mainActivity Transmitted in order to create a FragmentTransaction.
-//     */
-//    public static void setFragmentTransaction(AppCompatActivity _mainActivity) {
-//        main_activity = _mainActivity;
-//        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-//        for (Fragment fragment : map_array) {
-//            ft.add(R.id.frame_layout, fragment)
-//                    .hide(fragment);
-//        }
-//        ft.show(map_array.get(1))
-//            .commit();
-//        previous_fragment = map_array.get(1);
-//    }
-
     public static void setFragmentTransaction(AppCompatActivity _mainActivity) {
         main_activity = _mainActivity;
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
@@ -70,52 +55,60 @@ public abstract class FragmentManager {
                 commit();
     }
 
-    public static void setVisibleFragment(Fragment cur_fragment) {
+    public static void showFragment(Fragment fragment) {
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.hide(previous_fragment)
-                .show(cur_fragment).commit();
-        previous_fragment = cur_fragment;
+        ft.show(fragment).commit();
     }
 
-    public static void replaceFragmentInUpWindow(Fragment fragment) {
+    public static void hideFragment(Fragment fragment) {
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame_up_window, fragment).commit();
-        Log.d("fragment up", "replace up window");
+        ft.hide(fragment).commit();
     }
 
-    public static void replaceFragmentInUpWindow(Fragment fragment, String _header, String _description, int _image_id) {
-        header = _header;
-        description = _description;
-        image_id = _image_id;
-        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frame_up_window, fragment).commit();
-        Log.d("fragment up", "replace up window");
-    }
-
-    public static void setDescriptionInUpWindow(){
+    public static void setDescriptionFragment(String header, String description, int image_id) {
         icon_window.text_header.setText(header);
         icon_window.text_description.setText(description);
         icon_window.image.setImageResource(image_id);
     }
 
-    public static void removeFragmentInUpWindow(Fragment fragment) {
-        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        ft.remove(fragment).commit();
-        Log.d("fragment up", "replace up window");
+    public static void checkOpenChangeWindow() {
+        if (MainActivity.onClick){
+            hideFragment(change_frame_window);
+            MainActivity.onClick = false;
+        }
     }
 
-//    /**
-//     *Counts how many fragments are created.
-//     *Call in each fragment!
-//     */
-//    public static void add(){
-//        if (cur_count_fragment < Config.COUNT_FRAGMENTS){
-//            cur_count_fragment++;
-//        }
-//        if (cur_count_fragment == Config.COUNT_FRAGMENTS){
-//            Log.d("setFrames", "setFrames" + cur_count_fragment + "");
-//            MapManager.initMap();
-//        }
-//        Log.d("setFrames ", cur_count_fragment + "");
+//    public static void setVisibleFragment(Fragment cur_fragment) {
+//        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+//        ft.hide(previous_fragment)
+//                .show(cur_fragment).commit();
+//        previous_fragment = cur_fragment;
+//    }
+//
+//    public static void replaceFragmentInUpWindow(Fragment fragment) {
+//        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+//        ft.replace(R.id.frame_up_window, fragment).commit();
+//        Log.d("fragment up", "replace up window");
+//    }
+//
+//    public static void replaceFragmentInUpWindow(Fragment fragment, String _header, String _description, int _image_id) {
+//        header = _header;
+//        description = _description;
+//        image_id = _image_id;
+//        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+//        ft.replace(R.id.frame_up_window, fragment).commit();
+//        Log.d("fragment up", "replace up window");
+//    }
+//
+//    public static void setDescriptionInUpWindow(){
+//        icon_window.text_header.setText(header);
+//        icon_window.text_description.setText(description);
+//        icon_window.image.setImageResource(image_id);
+//    }
+//
+//    public static void removeFragmentInUpWindow(Fragment fragment) {
+//        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+//        ft.remove(fragment).commit();
+//        Log.d("fragment up", "replace up window");
 //    }
 }

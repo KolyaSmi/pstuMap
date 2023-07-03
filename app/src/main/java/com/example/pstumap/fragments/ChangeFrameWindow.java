@@ -56,7 +56,7 @@ public class ChangeFrameWindow extends Fragment {
         ledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
+                FragmentManager.hideFragment(FragmentManager.change_frame_window);
                 MainActivity.onClick = false;
             }
         });

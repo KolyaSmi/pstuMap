@@ -32,7 +32,7 @@ public class IconWindow extends Fragment {
         image = rootView.findViewById(R.id.imageView);
 //        image.setImageResource(R.drawable.test_image);
 
-        FragmentManager.setDescriptionInUpWindow();
+//        FragmentManager.setDescriptionInUpWindow();
 
         return rootView;
     }

@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.pstumap.Config;
 import com.example.pstumap.MainActivity;
 import com.example.pstumap.R;
+import com.example.pstumap.fragments.FragmentManager;
 
 /**
  * This class is responsible for the construction of the floor.
@@ -98,7 +99,7 @@ class Floor {
     }
 
     protected void setDescriptionsIcons(String[] headers, String[] descriptions, int[] images_id){
-        for (int i = 0; i < icons.length; i++){
+        for (int i = 0; i < headers.length; i++){
             icons[i].setDescription(headers[i], descriptions[i], images_id[i]);
         }
     }
@@ -181,6 +182,7 @@ class Floor {
                 if (icon.onTouch) {
                     icon.setScale(-1);
                     icon.onTouch = false;
+                    FragmentManager.hideFragment(FragmentManager.icon_window);
                 }
             }
         }

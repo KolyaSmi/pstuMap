@@ -151,18 +151,11 @@ public abstract class FrameManager {
         return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
-    public static void moveMap(float dx, float dy) {
-        map.getFrame(cur_frame_id).getFloor().movMap(dx, dy);
-    }
-
-    public static void setPos() {
-        map.getFrame(cur_frame_id).getFloor().setPos();
-    }
-
     public static void changeFrame(int frame_id) {
         cur_frame_id = frame_id;
 //        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
-        FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
+//        FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
+
     }
 
     public static void checkOpenIcons() {
