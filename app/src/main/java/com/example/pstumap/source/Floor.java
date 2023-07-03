@@ -6,8 +6,10 @@ import static com.example.pstumap.Config.MIN_SCALE;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
 
@@ -49,7 +51,9 @@ class Floor {
     protected void setMap(int map_id) {
         map = new ImageView(frame_layout.getContext());
         map.setImageResource(map_id);
-        map.setVisibility(View.VISIBLE);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        map.setLayoutParams(layoutParams);
+        hide();
         frame_layout.addView(map);
 
         setPos();
@@ -150,10 +154,20 @@ class Floor {
     }
 
     protected void show() {
+        if(icons != null) {
+            for (Icon icon : icons) {
+                icon.show();
+            }
+        }
         map.setVisibility(View.VISIBLE);
     }
 
     protected void hide() {
+        if(icons != null) {
+            for (Icon icon : icons) {
+                icon.hide();
+            }
+        }
         map.setVisibility(View.INVISIBLE);
     }
 

@@ -3,8 +3,10 @@ package com.example.pstumap.source;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.example.pstumap.Config;
 import com.example.pstumap.MainActivity;
@@ -30,14 +32,19 @@ class Icon {
     protected void setIcon(int icon, float x, float y, FrameLayout frame_layout) {
         this.x = x;
         this.y = y;
+        scale = 1f;
 
         this.icon = new ImageView(frame_layout.getContext());
         this.icon.setImageResource(icon);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Config.ICON_SIZE_WIGHT, Config.ICON_SIZE_HEIGHT);
+        this.icon.setLayoutParams(layoutParams);
+        this.icon.setScaleX(scale);
+        this.icon.setScaleY(scale);
+        hide();
         frame_layout.addView(this.icon);
 
         this.icon.setX(x);
         this.icon.setY(y);
-        scale = this.icon.getScaleX();
 
         header = "Заголовок";
         description = "Описание";
@@ -104,18 +111,26 @@ class Icon {
     }
 
     protected void setScale(int index){
-        float scale = icon.getScaleX() + (index * 0.4f);
+        float scale = icon.getScaleX() + (index * Config.ICON_SIZE_ON_CLICK);
         icon.setScaleX(scale);
         icon.setScaleY(scale);
         if(index > 0)
-            icon.setY(icon.getY() + (1 - (index * 1.4f)) * icon.getHeight()/2);
+            icon.setY(icon.getY() + (1 - (index * (1+Config.ICON_SIZE_ON_CLICK))) * icon.getHeight()/2);
         else
-            icon.setY(icon.getY() - (1 - (-index * 1.4f)) * icon.getHeight()/2);
+            icon.setY(icon.getY() - (1 - (-index * (1+Config.ICON_SIZE_ON_CLICK))) * icon.getHeight()/2);
     }
 
     protected void movIcon(float dx, float dy) {
         icon.setX(x + dx);
         icon.setY(y + dy);
+    }
+
+    protected void show() {
+        icon.setVisibility(View.VISIBLE);
+    }
+
+    protected void hide() {
+        icon.setVisibility(View.INVISIBLE);
     }
 
     protected String getHeader(){

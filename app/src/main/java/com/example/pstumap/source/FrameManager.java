@@ -41,7 +41,8 @@ public abstract class FrameManager {
      * @return Returns the building ID.
      */
     public static int createFrame(int count_floors) {
-        return map.addFrame(count_floors);
+        cur_frame_id = map.addFrame(count_floors);
+        return cur_frame_id;
     }
 
     /**
@@ -115,6 +116,10 @@ public abstract class FrameManager {
         int[] images_id = new int[1];
         images_id[0] = image_id;
         map.getFrame(id).getFloor().setDescriptionsIcons(headers, descriptions, images_id);
+    }
+
+    public static void setVisibleFloor() {
+        map.getFrame(cur_frame_id).getFloor().show();
     }
 
     public static void scaleMapPlus() {
