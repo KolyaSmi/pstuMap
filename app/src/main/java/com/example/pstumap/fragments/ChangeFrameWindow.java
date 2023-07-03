@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.pstumap.MainActivity;
 import com.example.pstumap.MapManager;
@@ -24,10 +26,13 @@ public class ChangeFrameWindow extends Fragment {
 
     private Button complex_a_button;
     private Button complex_g_button;
+    private LinearLayout linear_layout;
 
     public ImageView ledge;
 
     public float y;
+    public float Y;
+    public float stand_y;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +42,9 @@ public class ChangeFrameWindow extends Fragment {
 
         complex_a_button = rootView.findViewById(R.id.change_complex_a_button);
         complex_g_button = rootView.findViewById(R.id.change_complex_g_button);
+        linear_layout = rootView.findViewById(R.id.linear_layout);
+
+        stand_y = MainActivity.frame_up_window.getY();
 
         complex_a_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +66,30 @@ public class ChangeFrameWindow extends Fragment {
 
         ledge = rootView.findViewById(R.id.ledge);
 
-        ledge.setOnClickListener(new View.OnClickListener() {
+//        ledge.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentManager.hideFragment(FragmentManager.change_frame_window);
+//                MainActivity.onClick = false;
+//            }
+//        });
+
+        ledge.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                FragmentManager.hideFragment(FragmentManager.change_frame_window);
-                MainActivity.onClick = false;
+            public boolean onTouch(View view, MotionEvent event) {
+                if (MotionEvent.ACTION_DOWN == event.getAction()){
+                    y = event.getY();
+                    Y = MainActivity.frame_up_window.getY();
+                    MainActivity.frame_up_window.setY(Y);
+                }
+                if (MotionEvent.ACTION_MOVE == event.getAction()){
+//                    MainActivity.frame_up_window.setY(y + linear_layout.getHeight() + linear_layout.getY());
+//                    MainActivity.frame_up_window.setY(Y - (y - event.getY()));
+                    MainActivity.frame_up_window.setY(event.getY() + Y);
+                    Y = MainActivity.frame_up_window.getY();
+                }
+                Log.d("ledge", event.getY() +"");
+                return true;
             }
         });
 

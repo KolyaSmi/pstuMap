@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public TextView floor_number;
 
-    private static FrameLayout frame_up_window;
+    public static FrameLayout frame_up_window;
 
     public static boolean onClick;
 
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 FrameManager.checkOpenIcons();
                 if(onClick) {
                     FragmentManager.hideFragment(FragmentManager.change_frame_window);
+                    frame_up_window.setY(FragmentManager.change_frame_window.stand_y);
                     onClick = false;
                 }else {
                     FragmentManager.showFragment(FragmentManager.change_frame_window);
