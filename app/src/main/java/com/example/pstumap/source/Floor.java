@@ -85,11 +85,11 @@ class Floor {
      * @param x Initial coordinates x.
      * @param y Initial coordinates y.
      */
-    protected void setIcons(ImageView[] dest_icons, float[] x, float[] y) {
+    protected void setIcons(int[] dest_icons, float[] x, float[] y) {
         icons = new Icon[dest_icons.length];
         for (int i = 0; i < dest_icons.length; i++){
             icons[i] = new Icon();
-            icons[i].setIcon(dest_icons[i], x[i], y[i]);
+            icons[i].setIcon(dest_icons[i], x[i], y[i], frame_layout);
         }
     }
 

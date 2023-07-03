@@ -72,7 +72,7 @@ public abstract class FrameManager {
      * @param x An array of initial x coordinates for each icon.
      * @param y An array of initial y coordinates for each icon.
      */
-    public static void setIcons(int id, ImageView[] icons, float[] x, float[] y) {
+    public static void setIcons(int id, int[] icons, float[] x, float[] y) {
         if (icons.length != x.length || icons.length != y.length) {
             Log.e("error", "The arrays do not match each other in the icon installation.");
             return;
@@ -89,8 +89,8 @@ public abstract class FrameManager {
      * @param x An array of initial x coordinates for each icon.
      * @param y An array of initial y coordinates for each icon.
      */
-    public static void setIcon(int id, ImageView icon, float x, float y) {
-        ImageView[] icons = new ImageView[1];
+    public static void setIcon(int id, int icon, float x, float y) {
+        int[] icons = new int[1];
         icons[0] = icon;
         float[] xs = new float[1];
         xs[0] = x;
@@ -131,14 +131,14 @@ public abstract class FrameManager {
     public static int upFloor() {
         map.getFrame(cur_frame_id).getFloor().hide();
         map.getFrame(cur_frame_id).up();
-//        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
         map.getFrame(cur_frame_id).getFloor().show();
         return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
     public static int downFloor() {
+        map.getFrame(cur_frame_id).getFloor().hide();
         map.getFrame(cur_frame_id).down();
-//        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+        map.getFrame(cur_frame_id).getFloor().show();
         return map.getFrame(cur_frame_id).getNumberFloor();
     }
 

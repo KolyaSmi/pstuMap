@@ -3,6 +3,7 @@ package com.example.pstumap.source;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.pstumap.Config;
@@ -26,20 +27,27 @@ class Icon {
     private float x;
     private float y;
 
-    protected void setIcon(ImageView icon, float x, float y) {
-        this.icon = icon;
+    protected void setIcon(int icon, float x, float y, FrameLayout frame_layout) {
         this.x = x;
         this.y = y;
 
+        this.icon = new ImageView(frame_layout.getContext());
+        this.icon.setImageResource(icon);
+        frame_layout.addView(this.icon);
+
         this.icon.setX(x);
         this.icon.setY(y);
-        scale = icon.getScaleX();
+        scale = this.icon.getScaleX();
 
         header = "Заголовок";
         description = "Описание";
         image_id = R.drawable.default_image_icon;
 
-        this.icon.setOnTouchListener(new View.OnTouchListener() {
+        setListener();
+    }
+
+    private void setListener() {
+        icon.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {

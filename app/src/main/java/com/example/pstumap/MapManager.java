@@ -22,6 +22,7 @@ public abstract class MapManager {
         addFloor(complex_a, R.drawable.map_complex_a_1);
 
         addFloor(complex_a, R.drawable.map_complex_a_2);
+        setIcon(complex_a, R.drawable.icon_caffe, 170, 70);
 //        setImageMap(complex_a, FragmentManager.map_fragment.map);
 //        setIcon(complex_a, FragmentManager.map_fragment.icon_1, 0, 0);
 //        setDescriptionIcon(complex_a, "1", "1", R.drawable.test_image);

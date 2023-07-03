@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         floor_down_button = findViewById(R.id.floor_down_button);
 
         floor_number = findViewById(R.id.floor_number);
-        floor_number.setText(1 + "");
+//        floor_number.setText( "");
 
         change_frame_button = findViewById(R.id.change_frame_button);
 
@@ -106,14 +106,14 @@ public class MainActivity extends AppCompatActivity {
         floor_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               floor_number.setText(FrameManager.upFloor() + "");
+               floor_number.setText((FrameManager.upFloor() + 1) + "");
             }
         });
 
         floor_down_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                floor_number.setText(FrameManager.downFloor() + "");
+                floor_number.setText((FrameManager.downFloor() + 1) + "");
             }
         });
 
