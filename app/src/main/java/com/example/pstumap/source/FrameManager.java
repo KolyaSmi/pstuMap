@@ -1,6 +1,7 @@
 package com.example.pstumap.source;
 
 import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,8 +30,8 @@ public abstract class FrameManager {
      * Getting Started with the Map.
      * @return Returns a link to the map.
      */
-    public static Map createMap() {
-        map = new Map();
+    public static Map createMap(FrameLayout frame_layout) {
+        map = new Map(frame_layout);
         return map;
     }
 
@@ -48,20 +49,19 @@ public abstract class FrameManager {
      * The addition takes place one step at a time.
      * After each added floor, you must set the other characteristics of the floor.
      * @param id Frame ID.
-     * @param fragment Link to the fragment for further reference.
      */
-    public static void addFloor(int id, Fragment fragment){
-        map.getFrame(id).addFloor(fragment);
+    public static void addFloor(int id, int map_id){
+        map.getFrame(id).addFloor(map_id);
     }
 
-    /**
-     * Assigns the desired floor picture to the current floor.
-     * @param id Frame ID.
-     * @param image A map from the desired frame is transmitted.
-     */
-    public static void setImageMap(int id, ImageView image) {
-        map.getFrame(id).getFloor().setMap(image);
-    }
+//    /**
+//     * Assigns the desired floor picture to the current floor.
+//     * @param id Frame ID.
+//     * @param image A map from the desired frame is transmitted.
+//     */
+//    public static void setImageMap(int id, ImageView image) {
+//        map.getFrame(id).getFloor().setMap(image);
+//    }
 
     /**
      * Assigns to the current floor an array of icons for that floor.
@@ -130,13 +130,13 @@ public abstract class FrameManager {
 
     public static int upFloor() {
         map.getFrame(cur_frame_id).up();
-        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+//        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
         return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
     public static int downFloor() {
         map.getFrame(cur_frame_id).down();
-        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+//        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
         return map.getFrame(cur_frame_id).getNumberFloor();
     }
 
@@ -159,7 +159,7 @@ public abstract class FrameManager {
 //            cur_frame_id = 1;
 //        }
         cur_frame_id = frame_id;
-        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
+//        FragmentManager.setVisibleFragment(map.getFrame(cur_frame_id).getFloor().getFragment());
         FragmentManager.removeFragmentInUpWindow(FragmentManager.change_frame_window);
     }
 

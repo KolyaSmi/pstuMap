@@ -21,15 +21,7 @@ public abstract class FragmentManager {
 
     public static IconWindow icon_window;
     public static ChangeFrameWindow change_frame_window;
-
-    public static ArrayList<Fragment> map_array;
-
-    public static MapComplexA1 map_complex_a_1;
-    public static MapComplexA2 map_complex_a_2;
-
-    public static MapComplexG1 map_complex_g_1;
-    public static MapComplexG2 map_complex_g_2;
-    public static MapComplexG3 map_complex_g_3;
+    public static MapFragment map_fragment;
 
     private static AppCompatActivity main_activity;
 
@@ -44,41 +36,38 @@ public abstract class FragmentManager {
      *Initialize all fragments.
      */
     public static void initFragment(){
-        map_array = new ArrayList<>();
-        map_complex_a_1 = new MapComplexA1();
-        addMapInArray(map_complex_a_1);
-        map_complex_a_2 = new MapComplexA2();
-        addMapInArray(map_complex_a_2);
-
-        map_complex_g_1 = new MapComplexG1();
-        addMapInArray(map_complex_g_1);
-        map_complex_g_2 = new MapComplexG2();
-        addMapInArray(map_complex_g_2);
-        map_complex_g_3 = new MapComplexG3();
-        addMapInArray(map_complex_g_3);
+        map_fragment = new MapFragment();
 
         icon_window = new IconWindow();
         change_frame_window = new ChangeFrameWindow();
     }
 
-    private static void addMapInArray(Fragment fragment) {
-        map_array.add(fragment);
-    }
+//    /**
+//     * This method goes through all fragments and adds them to the FragmentTransaction stack.
+//     * @param _mainActivity Transmitted in order to create a FragmentTransaction.
+//     */
+//    public static void setFragmentTransaction(AppCompatActivity _mainActivity) {
+//        main_activity = _mainActivity;
+//        FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
+//        for (Fragment fragment : map_array) {
+//            ft.add(R.id.frame_layout, fragment)
+//                    .hide(fragment);
+//        }
+//        ft.show(map_array.get(1))
+//            .commit();
+//        previous_fragment = map_array.get(1);
+//    }
 
-    /**
-     * This method goes through all fragments and adds them to the FragmentTransaction stack.
-     * @param _mainActivity Transmitted in order to create a FragmentTransaction.
-     */
     public static void setFragmentTransaction(AppCompatActivity _mainActivity) {
         main_activity = _mainActivity;
         FragmentTransaction ft = main_activity.getSupportFragmentManager().beginTransaction();
-        for (Fragment fragment : map_array) {
-            ft.add(R.id.frame_layout, fragment)
-                    .hide(fragment);
-        }
-        ft.show(map_array.get(1))
-            .commit();
-        previous_fragment = map_array.get(1);
+        ft.add(R.id.frame_layout, map_fragment).
+                add(R.id.frame_up_window, icon_window).
+                add(R.id.frame_up_window, change_frame_window).
+                hide(icon_window).
+                hide(change_frame_window).
+                show(map_fragment).
+                commit();
     }
 
     public static void setVisibleFragment(Fragment cur_fragment) {
@@ -115,18 +104,18 @@ public abstract class FragmentManager {
         Log.d("fragment up", "replace up window");
     }
 
-    /**
-     *Counts how many fragments are created.
-     *Call in each fragment!
-     */
-    public static void add(){
-        if (cur_count_fragment < Config.COUNT_FRAGMENTS){
-            cur_count_fragment++;
-        }
-        if (cur_count_fragment == Config.COUNT_FRAGMENTS){
-            Log.d("setFrames", "setFrames" + cur_count_fragment + "");
-            MapManager.initMap();
-        }
-        Log.d("setFrames ", cur_count_fragment + "");
-    }
+//    /**
+//     *Counts how many fragments are created.
+//     *Call in each fragment!
+//     */
+//    public static void add(){
+//        if (cur_count_fragment < Config.COUNT_FRAGMENTS){
+//            cur_count_fragment++;
+//        }
+//        if (cur_count_fragment == Config.COUNT_FRAGMENTS){
+//            Log.d("setFrames", "setFrames" + cur_count_fragment + "");
+//            MapManager.initMap();
+//        }
+//        Log.d("setFrames ", cur_count_fragment + "");
+//    }
 }

@@ -7,16 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pstumap.fragments.ChangeFrameWindow;
 import com.example.pstumap.fragments.FragmentManager;
-import com.example.pstumap.fragments.MapComplexG1;
 import com.example.pstumap.source.FrameManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -86,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         frame_up_window = findViewById(R.id.frame_up_window);
 
         onClick = false;
+
+//        ImageView imageView = new ImageView(this);
+//        imageView.setImageResource(R.drawable.map_complex_a_1);
+//        imageView.setVisibility(View.VISIBLE);
 
         ft = getSupportFragmentManager().beginTransaction();
         FragmentManager.setFragmentTransaction(this);

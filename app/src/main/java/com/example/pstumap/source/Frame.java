@@ -1,8 +1,11 @@
 package com.example.pstumap.source;
 
+import android.widget.FrameLayout;
+
 import androidx.fragment.app.Fragment;
 
 import com.example.pstumap.MainActivity;
+import com.example.pstumap.R;
 
 /**
  * This class is responsible for one building and stores the floors.
@@ -12,22 +15,17 @@ class Frame {
 
     private Floor[] floors;
 
-    private int number_floor;
+    private FrameLayout frame_layout;
 
-    private MainActivity activity;
+    private int number_floor;
 
     /**
      * Method creates an array of floors.
      * @param count_floors number of floors in the building.
      */
-    protected Frame(int count_floors) {
+    protected Frame(int count_floors, FrameLayout frame_layout) {
         floors = new Floor[count_floors];
-        number_floor = -1;
-    }
-
-    protected Frame(MainActivity activity, int count_floors) {
-        this.activity = activity;
-        floors = new Floor[count_floors];
+        this.frame_layout = frame_layout;
         number_floor = -1;
     }
 
@@ -50,11 +48,11 @@ class Frame {
 
     /**
      *Goes up one floor and creates a new floor.
-     * @param fragment Link to the fragment for further reference.
      */
-    protected void addFloor(Fragment fragment) {
+    protected void addFloor(int map_id) {
         number_floor++;
-        floors[number_floor] = new Floor(fragment);
+        floors[number_floor] = new Floor(frame_layout);
+        floors[number_floor].setMap(map_id);
     }
 
     /**

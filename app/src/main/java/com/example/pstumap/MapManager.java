@@ -2,6 +2,10 @@ package com.example.pstumap;
 
 import static com.example.pstumap.source.FrameManager.*;
 
+import android.widget.FrameLayout;
+
+import androidx.fragment.app.Fragment;
+
 import com.example.pstumap.fragments.FragmentManager;
 
 public abstract class MapManager {
@@ -10,13 +14,14 @@ public abstract class MapManager {
 
     public static int complex_g;
 
-    public static void initMap() {
-        createMap();
+    public static void initMap(FrameLayout frame_layout) {
+//        createMap(FragmentManager.map_fragment);
+        createMap(frame_layout);
 
-//        complex_a = createFrame(2);
-//        addFloor(complex_a, FragmentManager.map_complex_a_1);
-//        setImageMap(complex_a, FragmentManager.map_complex_a_1.map);
-//        setIcon(complex_a, FragmentManager.map_complex_a_1.icon_1, 0, 0);
+        complex_a = createFrame(2);
+        addFloor(complex_a, R.drawable.map_complex_a_1);
+//        setImageMap(complex_a, FragmentManager.map_fragment.map);
+//        setIcon(complex_a, FragmentManager.map_fragment.icon_1, 0, 0);
 //        setDescriptionIcon(complex_a, "1", "1", R.drawable.test_image);
 //
 //        addFloor(complex_a, FragmentManager.map_complex_a_2);

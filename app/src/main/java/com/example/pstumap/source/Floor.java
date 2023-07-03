@@ -4,6 +4,8 @@ import static com.example.pstumap.Config.MAX_SCALE;
 import static com.example.pstumap.Config.MIN_SCALE;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
@@ -22,7 +24,7 @@ class Floor {
 
     private ImageView map;
 
-    private Fragment fragment;
+    private FrameLayout frame_layout;
 
     private float scale;
     private float x;
@@ -30,19 +32,24 @@ class Floor {
 
     /**
      * Creates a new floor.
-     * @param _fragment Link to the fragment for further reference.
+     * @param frame_layout Link to the fragment for further reference.
      */
-    protected Floor(Fragment _fragment) {
-        fragment = _fragment;
+    protected Floor(FrameLayout frame_layout) {
+        this.frame_layout = frame_layout;
     }
 
     /**
      * Sets the picture for the floor from the fragment.
-     * @param imageView Map picture.
+     * @param map_id Map picture id.
      */
-    protected void setMap(ImageView imageView) {
-        map = imageView;
+    protected void setMap(int map_id) {
+        map = new ImageView(frame_layout.getContext());
+        map.setImageResource(map_id);
+        map.setVisibility(View.VISIBLE);
+        frame_layout.addView(map);
+
         scale = map.getScaleX();
+        Log.d("map image", "set");
     }
 
     /**
@@ -114,13 +121,13 @@ class Floor {
         Log.d("move map", "x: " + map.getX() + " y: " + map.getY());
     }
 
-    /**
-     *
-     * @return Returns a fragment with a map.
-     */
-    public Fragment getFragment() {
-        return fragment;
-    }
+//    /**
+//     *
+//     * @return Returns a fragment with a map.
+//     */
+//    public Fragment getFragment() {
+//        return fragment;
+//    }
 
     public Icon[] getIcons() {
         return icons;
