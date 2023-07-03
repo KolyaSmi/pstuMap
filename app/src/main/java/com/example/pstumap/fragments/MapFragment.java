@@ -2,6 +2,7 @@ package com.example.pstumap.fragments;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -16,7 +17,7 @@ import com.example.pstumap.R;
 
 public class MapFragment extends Fragment {
 
-    private FrameLayout frame_layout;
+    public FrameLayout frame_layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

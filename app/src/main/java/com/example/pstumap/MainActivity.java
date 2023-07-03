@@ -48,22 +48,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setTouchListener() {
-        frame_layout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    X = event.getX();
-                    Y = event.getY();
-                }
-                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-                    FrameManager.moveMap(event.getX() - X, event.getY() - Y);
-                }
-                if (MotionEvent.ACTION_UP == event.getAction()) {
-                    FrameManager.setPos();
-                }
-                return true;
-            }
-        });
+//        frame_layout.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
+//                    X = event.getX();
+//                    Y = event.getY();
+//                }
+//                if (MotionEvent.ACTION_MOVE == event.getAction()) {
+//                    FrameManager.moveMap(event.getX() - X, event.getY() - Y);
+//                }
+//                if (MotionEvent.ACTION_UP == event.getAction()) {
+//                    FrameManager.setPos();
+//                }
+//                return true;
+//            }
+//        });
     }
 
     private void initElement() {
@@ -82,10 +82,6 @@ public class MainActivity extends AppCompatActivity {
         frame_up_window = findViewById(R.id.frame_up_window);
 
         onClick = false;
-
-//        ImageView imageView = new ImageView(this);
-//        imageView.setImageResource(R.drawable.map_complex_a_1);
-//        imageView.setVisibility(View.VISIBLE);
 
         ft = getSupportFragmentManager().beginTransaction();
         FragmentManager.setFragmentTransaction(this);

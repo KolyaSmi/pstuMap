@@ -4,6 +4,7 @@ import static com.example.pstumap.Config.MAX_SCALE;
 import static com.example.pstumap.Config.MIN_SCALE;
 
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -27,6 +28,9 @@ class Floor {
     private FrameLayout frame_layout;
 
     private float scale;
+
+    private float mouse_x;
+    private float mouse_y;
     private float x;
     private float y;
 
@@ -48,8 +52,31 @@ class Floor {
         map.setVisibility(View.VISIBLE);
         frame_layout.addView(map);
 
+        setPos();
+        setListener();
+
         scale = map.getScaleX();
         Log.d("map image", "set");
+    }
+
+    private void setListener() {
+        map.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (MotionEvent.ACTION_DOWN == event.getAction()) {
+                    mouse_x = event.getX();
+                    mouse_y = event.getY();
+                }
+                if (MotionEvent.ACTION_MOVE == event.getAction()) {
+                    movMap(event.getX() - mouse_x, event.getY() - mouse_y);
+                }
+                if (MotionEvent.ACTION_UP == event.getAction()) {
+                    setPos();
+                }
+                Log.d("onTouch", "dx " + (event.getX() - mouse_x) + " dy " + (event.getY() - mouse_y));
+                return true;
+            }
+        });
     }
 
     /**
@@ -118,26 +145,29 @@ class Floor {
             }
         map.setX(x + dx);
         map.setY(y + dy);
+        setPos();
         Log.d("move map", "x: " + map.getX() + " y: " + map.getY());
     }
 
-//    /**
-//     *
-//     * @return Returns a fragment with a map.
-//     */
-//    public Fragment getFragment() {
-//        return fragment;
-//    }
+    protected void show() {
+        map.setVisibility(View.VISIBLE);
+    }
+
+    protected void hide() {
+        map.setVisibility(View.INVISIBLE);
+    }
 
     public Icon[] getIcons() {
         return icons;
     }
 
     public void checkOpenIcons() {
-        for (Icon icon : icons){
-            if(icon.onTouch){
-                icon.setScale(-1);
-                icon.onTouch = false;
+        if(icons != null) {
+            for (Icon icon : icons) {
+                if (icon.onTouch) {
+                    icon.setScale(-1);
+                    icon.onTouch = false;
+                }
             }
         }
     }
