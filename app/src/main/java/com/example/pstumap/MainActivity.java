@@ -1,9 +1,11 @@
 package com.example.pstumap;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public static FrameLayout frame_up_window;
 
     public static boolean onClick;
+
+    public static float stand_y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 FrameManager.checkOpenIcons();
                 if(onClick) {
                     FragmentManager.hideFragment(FragmentManager.change_frame_window);
-                    frame_up_window.setY(FragmentManager.change_frame_window.stand_y);
+//                    frame_up_window.setY(stand_y);
                     onClick = false;
                 }else {
                     FragmentManager.showFragment(FragmentManager.change_frame_window);
