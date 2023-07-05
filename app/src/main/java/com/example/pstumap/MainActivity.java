@@ -21,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton floor_up_button;
     private ImageButton floor_down_button;
     private ImageButton change_frame_button;
+    private static TextView building;
 
-    public TextView floor_number;
+    public static TextView floor_number;
 
     public static FrameLayout frame_up_window;
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 //        floor_number.setText( "");
 
         change_frame_button = findViewById(R.id.change_frame_button);
+        building = findViewById(R.id.building);
 
         frame_up_window = findViewById(R.id.frame_up_window);
 
@@ -111,5 +113,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static FrameLayout getFrameUpWindow(){
         return frame_up_window;
+    }
+
+    public static void changeTitle(int frame){
+        building.setText(FrameManager.getTitle(frame));
     }
 }

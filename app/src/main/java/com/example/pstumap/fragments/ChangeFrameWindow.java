@@ -49,6 +49,7 @@ public class ChangeFrameWindow extends Fragment {
                 FrameManager.changeFrame(MapManager.complex_a);
                 complex_a_button.setBackgroundResource(R.drawable.blocked_back_button_in_up_window);
                 complex_g_button.setBackgroundResource(R.drawable.back_button_in_up_window);
+                MainActivity.changeTitle(MapManager.complex_a);
             }
         });
 
@@ -58,6 +59,7 @@ public class ChangeFrameWindow extends Fragment {
                 FrameManager.changeFrame(MapManager.complex_g);
                 complex_g_button.setBackgroundResource(R.drawable.blocked_back_button_in_up_window);
                 complex_a_button.setBackgroundResource(R.drawable.back_button_in_up_window);
+                MainActivity.changeTitle(MapManager.complex_g);
             }
         });
 

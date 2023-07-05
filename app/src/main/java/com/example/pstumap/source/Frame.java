@@ -12,6 +12,8 @@ class Frame {
 
     private FrameLayout frame_layout;
 
+    private String title;
+
     private int number_floor;
 
     /**
@@ -21,6 +23,7 @@ class Frame {
     protected Frame(int count_floors, FrameLayout frame_layout) {
         floors = new Floor[count_floors];
         this.frame_layout = frame_layout;
+        title = "Комплекс N";
         number_floor = -1;
     }
 
@@ -50,6 +53,10 @@ class Frame {
         floors[number_floor].setMap(map_id);
     }
 
+    protected void setTitle(String title) {
+        this.title = title;
+    }
+
     /**
      *
      * @return Transmits the current floor.
@@ -60,5 +67,9 @@ class Frame {
 
     protected int getNumberFloor() {
         return number_floor;
+    }
+
+    protected String getTitle() {
+        return title;
     }
 }

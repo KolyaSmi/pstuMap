@@ -14,6 +14,7 @@ public abstract class MapManager {
         createMap(frame_layout);
 
         complex_a = createFrame(Config.COUNT_FLOOR_COMPLEX_A);
+        setTitle(complex_a, "Корпус А");
         addFloor(complex_a, R.drawable.map_complex_a_1);
 
         addFloor(complex_a, R.drawable.map_complex_a_2);
@@ -21,10 +22,13 @@ public abstract class MapManager {
         setDescriptionIcon(complex_a, "Лестница", "Не очень удобная лестница." , R.drawable.test_image);
 
         complex_g = createFrame(Config.COUNT_FLOOR_COMPLEX_G);
+        setTitle(complex_g, "Корпус Г");
         addFloor(complex_g, R.drawable.map_complex_g_1);
 
         addFloor(complex_g, R.drawable.map_complex_a_1);
 
         setVisibleFloor();
+        MainActivity.changeTitle(complex_g);
+        MainActivity.floor_number.setText(getNumberFloor() + "");
     }
 }

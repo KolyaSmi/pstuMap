@@ -32,6 +32,14 @@ public abstract class FrameManager {
         return map;
     }
 
+    public static void setTitle(int id, String title) {
+        map.getFrame(id).setTitle(title);
+    }
+
+    public static String getTitle(int id) {
+        return map.getFrame(id).getTitle();
+    }
+
     /**
      * Creates a new frame on which all the floors of the building are placed.
      * @param count_floors The number of floors in the building.
