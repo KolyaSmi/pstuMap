@@ -11,6 +11,6 @@ public abstract class Config {
     public static final float ICON_SIZE_ON_CLICK = 0.3f;
 
     public static final int COUNT_FLOOR_COMPLEX_A = 2;
-    public static final int COUNT_FLOOR_COMPLEX_G = 2;
+    public static final int COUNT_FLOOR_COMPLEX_G = 4;
 
 }
