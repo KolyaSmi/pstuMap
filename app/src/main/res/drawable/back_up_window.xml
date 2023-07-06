@@ -3,9 +3,30 @@
     <item>
         <shape>
             <gradient android:angle="270"
-                android:endColor="#ECECEC"
-                android:startColor="#B3ECECEC" />
+                android:endColor="#E2ECECEC"
+                android:startColor="#A1ECECEC" />
             <corners android:bottomLeftRadius="0dp" android:bottomRightRadius="0dp" android:topLeftRadius="30dp" android:topRightRadius="30dp" />
         </shape>
     </item>
 </selector>
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <item>-->
+<!--        <layer-list>-->
+<!--                        <item>-->
+<!--                            <shape>-->
+<!--                                <corners android:topRightRadius="30dp" android:topLeftRadius="30dp" />-->
+<!--                                <gradient android:angle="270"-->
+<!--                                    android:endColor="#1BFFFFFF" android:startColor="#1BFFFFFF" />-->
+<!--                            </shape>-->
+<!--                        </item>-->
+<!--            <item android:left="3dp">-->
+<!--                <shape>-->
+<!--                    <solid-->
+<!--                        android:color = "#86FFFFFF" />-->
+<!--                    <corners android:topRightRadius="30dp" android:topLeftRadius="30dp"/>-->
+<!--                </shape>-->
+<!--            </item>-->
+<!--        </layer-list>-->
+<!--    </item>-->
+
+<!--</selector>-->
