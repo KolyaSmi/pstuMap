@@ -48,7 +48,8 @@ class Floor {
     protected void setMap(int map_id) {
         map = new ImageView(frame_layout.getContext());
         map.setImageResource(map_id);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(228, 1194);
         map.setLayoutParams(layoutParams);
         hide();
         frame_layout.addView(map);

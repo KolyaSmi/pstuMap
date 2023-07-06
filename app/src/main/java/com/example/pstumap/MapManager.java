@@ -26,15 +26,15 @@ public abstract class MapManager {
 
         int[] icons = new int[]{
                 R.drawable.icon_caffe,
+                R.drawable.icon_stairs,
+                R.drawable.icon_stairs,
                 R.drawable.icon_wc_women,
-                R.drawable.icon_stairs,
-                R.drawable.icon_stairs,
                 R.drawable.icon_stairs
         };
 
         float[][] xy = new float[][]{
-                {228 + 90, 39 + 90, 31 + 90, 228 + 90, 34 + 90},
-                {350, 65, 0, 550, 1250}
+                {228 + 90, 31 + 90, 228 + 90, 39 + 90, 34 + 90},
+                {350, 0, 550, 65, 1250}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_1);
@@ -42,16 +42,16 @@ public abstract class MapManager {
 
         icons = new int[]{
                 R.drawable.icon_relax_place,
-                R.drawable.icon_wc_men,
                 R.drawable.icon_stairs,
                 R.drawable.icon_relax_place,
                 R.drawable.icon_stairs,
+                R.drawable.icon_wc_men,
                 R.drawable.icon_wc_women
         };
 
         xy = new float[][]{
-                {39 + 90, 39 + 90, 31 + 90, 228 + 90, 34 + 90, 39 + 90},
-                {1150, 65, 0, 550, 1250, 1320}
+                {39 + 90, 31 + 90, 228 + 90, 34 + 90, 39 + 90, 39 + 90},
+                {1150, 0, 550, 1250, 65, 1320}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_2);
@@ -59,31 +59,31 @@ public abstract class MapManager {
 
         icons = new int[]{
                 R.drawable.icon_caffe,
-                R.drawable.icon_wc_men,
                 R.drawable.icon_stairs,
                 R.drawable.icon_relax_place,
                 R.drawable.icon_stairs,
+                R.drawable.icon_wc_men,
                 R.drawable.icon_wc_women
         };
 
         xy = new float[][]{
-                {10 + 90, 39 + 90, 31 + 90, 228 + 90, 34 + 90, 39 + 90},
-                {1100, 65, 0, 550, 1250, 1320}
+                {10 + 90, 31 + 90, 228 + 90, 34 + 90, 39 + 90, 39 + 90},
+                {1100, 0, 550, 1250, 65, 1320}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_3);
         setIcons(complex_g, icons, xy[0], xy[1]);
 
         icons = new int[]{
+                R.drawable.icon_stairs,
+                R.drawable.icon_stairs,
                 R.drawable.icon_wc_men,
-                R.drawable.icon_stairs,
-                R.drawable.icon_stairs,
                 R.drawable.icon_wc_women
         };
 
         xy = new float[][]{
-                {39 + 90, 31 + 90, 34 + 90, 39 + 90},
-                {65, 0, 1250, 1320}
+                {31 + 90, 34 + 90, 39 + 90, 39 + 90},
+                {0, 1250, 65, 1320}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_4);
