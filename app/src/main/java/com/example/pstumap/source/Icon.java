@@ -25,6 +25,8 @@ class Icon {
 
     protected boolean onTouch = false;
     private float scale;
+    private float rel_x;
+    private float rel_y;
     private float x;
     private float y;
 
@@ -41,6 +43,9 @@ class Icon {
         this.icon.setScaleY(scale);
         hide();
         frame_layout.addView(this.icon);
+
+        rel_x = x + Config.ICON_SIZE_WIGHT/2f;
+        rel_y = y + Config.ICON_SIZE_HEIGHT;
 
         this.icon.setX(x);
         this.icon.setY(y);
@@ -85,6 +90,9 @@ class Icon {
     protected void setPos() {
         x = icon.getX();
         y = icon.getY();
+
+        rel_x = x + Config.ICON_SIZE_WIGHT/2f;
+        rel_y = y + Config.ICON_SIZE_HEIGHT;
     }
 
     protected void setPos(int _x, int _y) {
@@ -100,11 +108,11 @@ class Icon {
         float cY = y_map + (height_map)/2;
 
         if(index > 0) {
-            icon.setX(cX + ((icon.getX() - cX) * (1 + Config.SCALE_STEP)));
-            icon.setY(cY + ((icon.getY() - cY) * (1 + Config.SCALE_STEP)));
+            icon.setX((cX + ((rel_x - cX) * (1 + Config.SCALE_STEP))) - Config.ICON_SIZE_WIGHT/2f);
+            icon.setY((cY + ((rel_y - cY) * (1 + Config.SCALE_STEP))) - Config.ICON_SIZE_HEIGHT);
         }else {
-            icon.setX(cX + ((icon.getX() - cX) / (1 + Config.SCALE_STEP)));
-            icon.setY(cY + ((icon.getY() - cY) / (1 + Config.SCALE_STEP)));
+            icon.setX((cX + ((rel_x - cX) / (1 + Config.SCALE_STEP))) - Config.ICON_SIZE_WIGHT/2f);
+            icon.setY((cY + ((rel_y - cY) / (1 + Config.SCALE_STEP))) - Config.ICON_SIZE_HEIGHT);
         }
         setPos();
 
