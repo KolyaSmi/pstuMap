@@ -11,7 +11,7 @@
             <item android:bottom="1.5dp" android:right="1dp">
                 <shape>
                     <solid
-                    android:color = "#86FFFFFF" />
+                    android:color = "#86272727" />
                     <corners android:radius="5dp" />
                 </shape>
             </item>

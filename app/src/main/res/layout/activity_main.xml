@@ -45,7 +45,7 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="15dp"
@@ -56,8 +56,8 @@
 
             <ImageButton
                 android:id="@+id/change_frame_button"
-                android:layout_width="52dp"
-                android:layout_height="52dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@drawable/button_white"
                 android:src="@drawable/more" />
 
@@ -69,15 +69,15 @@
 
             <FrameLayout
                 android:layout_width="128dp"
-                android:layout_height="52dp"
+                android:layout_height="48dp"
                 android:layout_gravity="end">
 
                 <ImageButton
                     android:id="@+id/choose_frame_button"
                     android:layout_width="128dp"
-                    android:layout_height="52dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/button_gray" />
+                    android:background="@drawable/button_white" />
 
                 <TextView
                     android:id="@+id/building"
@@ -97,7 +97,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="52dp"
+                android:layout_width="48dp"
                 android:layout_height="186dp"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginStart="15dp"
@@ -109,8 +109,8 @@
 
                     <ImageButton
                         android:id="@+id/floor_up_button"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="top"
                         android:background="@drawable/button_white"
                         android:elevation="8dp"
@@ -118,17 +118,17 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="20">
 
                     <ImageButton
                         android:id="@+id/imageButton"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/button_gray" />
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center|left"
+                        android:background="@drawable/button_white" />
 
                     <TextView
                         android:id="@+id/floor_number"
@@ -149,8 +149,8 @@
 
                     <ImageButton
                         android:id="@+id/floor_down_button"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="bottom"
                         android:layout_weight="1"
                         android:background="@drawable/button_white"
@@ -162,7 +162,7 @@
 
 
             <LinearLayout
-                android:layout_width="51dp"
+                android:layout_width="48dp"
                 android:layout_height="116dp"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginEnd="15dp"
@@ -171,14 +171,14 @@
                 tools:ignore="MissingConstraints">
 
                 <FrameLayout
-                    android:layout_width="52dp"
-                    android:layout_height="50dp">
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
 
                     <ImageButton
                         android:id="@+id/scale_plus"
 
-                        android:layout_width="51dp"
-                        android:layout_height="50dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:background="@drawable/button_white"
                         android:src="@drawable/plus"
 
@@ -187,14 +187,14 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="52dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_weight="40">
 
                     <ImageButton
                         android:id="@+id/scale_minus"
-                        android:layout_width="51dp"
-                        android:layout_height="50dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="bottom"
                         android:background="@drawable/button_white"
                         android:src="@drawable/minus"

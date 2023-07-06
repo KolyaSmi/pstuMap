@@ -42,15 +42,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:weightSum="2">
 
                 <Button
                     android:id="@+id/change_complex_a_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/back_button_in_up_window"
                     android:elevation="4sp"
                     android:fontFamily="@font/ubuntu"
+                    android:foreground="@drawable/button_gray"
                     android:text="Корпус А"
                     android:textColor="#000000"
                     android:textSize="20sp" />
@@ -59,9 +62,10 @@
                     android:id="@+id/change_complex_b_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="15dp"
                     android:background="@drawable/back_button_in_up_window"
                     android:fontFamily="@font/ubuntu"
+                    android:foreground="@drawable/button_gray"
                     android:text="КОРПУС Б"
                     android:textColor="#000000"
                     android:textSize="20sp" />
@@ -78,9 +82,11 @@
                     android:id="@+id/change_complex_v_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/back_button_in_up_window"
                     android:elevation="4sp"
                     android:fontFamily="@font/ubuntu"
+                    android:foreground="@drawable/button_gray"
                     android:text="Корпус В"
                     android:textColor="#000000"
                     android:textSize="20sp" />
@@ -89,8 +95,8 @@
                     android:id="@+id/change_complex_g_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/blocked_back_button_in_up_window"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/back_button_in_up_window"
                     android:fontFamily="@font/ubuntu"
                     android:text="КОРПУС Г"
                     android:textColor="#000000"
@@ -106,10 +112,11 @@
                     android:id="@+id/change_complex_d_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/back_button_in_up_window"
                     android:elevation="4sp"
                     android:fontFamily="@font/ubuntu"
-                    android:layout_marginBottom="10dp"
+                    android:foreground="@drawable/button_gray"
                     android:text="Корпус Д"
                     android:textColor="#000000"
                     android:textSize="20sp" />

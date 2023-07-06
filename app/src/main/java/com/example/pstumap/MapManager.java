@@ -37,9 +37,9 @@ public abstract class MapManager {
                 {200, -45, 335, 0, 820}
         };
 
-        String[][] description = new String[][]{
-                {"Каффе", "Лестница", "Лестница", "Женский туалет", "Лестница",},
-                {"Лучшее место чтобы поесть", "Первая", "Лестница ведет на цокольный этаж", "Женский туалет на первом этаже", "Третья",}
+        String[][] description1 = new String[][]{
+                {"Столовая корпуса", "Лестница", "Лестница", "Женский туалет", "Лестница",},
+                {"Место для вкусного восполнения сил", "", "Лестница ведет на цокольный этаж", "Не выбрасывайте туалетную бумагу в унитазы!", "",}
         };
 
         int [] images = new int[]{
@@ -52,7 +52,9 @@ public abstract class MapManager {
 
         addFloor(complex_g, R.drawable.map_complex_g_1);
         setIcons(complex_g, icons, xy[0], xy[1]);
-        setDescriptionsIcons(complex_g, description[0], description[1], images);
+        setDescriptionsIcons(complex_g, description1[0], description1[1], images);
+
+
 
         icons = new int[]{
                 R.drawable.icon_relax_place,
@@ -68,8 +70,23 @@ public abstract class MapManager {
                 {740, -45, 335, 820, 0, 870}
         };
 
+
+        String[][] description2 = new String[][]{
+                {"Зона отдыха", "Лестница", "Зона отдыха", "Лестница", "Мужской туалет","Женский туалет"},
+                {"Отдохни от учебной суеты", "", "Здесь можно зарядить свои устройства и отдохнуть", "", "Курить лучше на улице!","Не выбрасывайте туалетную бумагу в унитазы!",}
+        };
+
+        int [] images2 = new int[]{
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon
+        };
         addFloor(complex_g, R.drawable.map_complex_g_2);
         setIcons(complex_g, icons, xy[0], xy[1]);
+        setDescriptionsIcons(complex_g, description2[0], description2[1], images2);
 
         icons = new int[]{
                 R.drawable.icon_caffe,
@@ -85,8 +102,22 @@ public abstract class MapManager {
                 {730, -45, 335, 820, 0, 870}
         };
 
+        String[][] description3 = new String[][]{
+                {"Буфет", "Лестница", "Зона отдыха", "Лестница", "Мужской туалет","Женский туалет"},
+                {"Здесь очень добрая продавщица и очень дорогой Карман", "", "Расслабься и отдохни от учебы", "", "Курить лучше на улице!","Не выбрасывайте туалетную бумагу в унитазы!",}
+        };
+
+        int [] images3 = new int[]{
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon
+        };
         addFloor(complex_g, R.drawable.map_complex_g_3);
         setIcons(complex_g, icons, xy[0], xy[1]);
+        setDescriptionsIcons(complex_g, description3[0], description3[1], images3);
 
         icons = new int[]{
                 R.drawable.icon_stairs,
@@ -100,8 +131,22 @@ public abstract class MapManager {
                 {-45,820, 0, 870}
         };
 
+        String[][] description4 = new String[][]{
+                {"Лестница", "Лестница", "Мужской туалет","Женский туалет"},
+                {"", "", "Курить лучше на улице!","Не выбрасывайте туалетную бумагу в унитазы!",}
+        };
+
+        int [] images4 = new int[]{
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon
+        };
         addFloor(complex_g, R.drawable.map_complex_g_4);
         setIcons(complex_g, icons, xy[0], xy[1]);
+        setDescriptionsIcons(complex_g, description4[0], description4[1], images4);
 
 
         setVisibleFloor();
