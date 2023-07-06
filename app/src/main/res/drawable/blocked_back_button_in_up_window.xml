@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="171dp"
     android:height="104dp"
     android:viewportWidth="171"
@@ -13,7 +13,28 @@
 
         <path
             android:pathData="M0 0V104H171V0"
-            android:fillColor="#CC191A20"
+            android:fillColor="#52B1E7"
             />
     </group>
 </vector>
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <item>-->
+<!--        <layer-list>-->
+<!--            &lt;!&ndash;            <item>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <shape>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <corners android:radius="6dp" />&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <gradient android:angle="270"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:endColor="#31202020" android:startColor="#197C7C7C" />&ndash;&gt;-->
+<!--            &lt;!&ndash;                </shape>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </item>&ndash;&gt;-->
+<!--            <item android:bottom="1.5dp" android:right="1dp">-->
+<!--                <shape>-->
+<!--                    <solid-->
+<!--                        android:color = "#5EFFFFFF" />-->
+<!--                    <corners android:radius="5dp" />-->
+<!--                </shape>-->
+<!--            </item>-->
+<!--        </layer-list>-->
+<!--    </item>-->
+
+<!--</selector>-->

@@ -33,12 +33,26 @@ public abstract class MapManager {
         };
 
         float[][] xy = new float[][]{
-                {228 + 90, 31 + 90, 228 + 90, 39 + 90, 34 + 90},
-                {350, 0, 550, 65, 1250}
+                {110, -30, 110, -20, -30},
+                {200, -45, 335, 0, 820}
+        };
+
+        String[][] description = new String[][]{
+                {"Каффе", "Лестница", "Лестница", "Женский туалет", "Лестница",},
+                {"Лучшее место чтобы поесть", "Первая", "Лестница ведет на цокольный этаж", "Женский туалет на первом этаже", "Третья",}
+        };
+
+        int [] images = new int[]{
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon,
+                R.drawable.default_image_icon
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_1);
         setIcons(complex_g, icons, xy[0], xy[1]);
+        setDescriptionsIcons(complex_g, description[0], description[1], images);
 
         icons = new int[]{
                 R.drawable.icon_relax_place,
@@ -50,8 +64,8 @@ public abstract class MapManager {
         };
 
         xy = new float[][]{
-                {39 + 90, 31 + 90, 228 + 90, 34 + 90, 39 + 90, 39 + 90},
-                {1150, 0, 550, 1250, 65, 1320}
+                {-30, -30, 110, -30, -20, -30},
+                {740, -45, 335, 820, 0, 870}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_2);
@@ -67,8 +81,8 @@ public abstract class MapManager {
         };
 
         xy = new float[][]{
-                {10 + 90, 31 + 90, 228 + 90, 34 + 90, 39 + 90, 39 + 90},
-                {1100, 0, 550, 1250, 65, 1320}
+                {-50, -30, 110, -30, -20, -30},
+                {730, -45, 335, 820, 0, 870}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_3);
@@ -82,8 +96,8 @@ public abstract class MapManager {
         };
 
         xy = new float[][]{
-                {31 + 90, 34 + 90, 39 + 90, 39 + 90},
-                {0, 1250, 65, 1320}
+                {-30, -30, -20, -30},
+                {-45,820, 0, 870}
         };
 
         addFloor(complex_g, R.drawable.map_complex_g_4);

@@ -5,6 +5,7 @@ import static com.example.pstumap.Config.MIN_SCALE;
 
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -25,6 +26,8 @@ class Floor {
     private ImageView map;
 
     private FrameLayout frame_layout;
+
+    private ScaleGestureDetector scaleGestureDetector;
 
     private float scale;
 
@@ -52,7 +55,11 @@ class Floor {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(228, 1194);
         map.setLayoutParams(layoutParams);
         hide();
+        scale = 1f;
         frame_layout.addView(map);
+        scaleGestureDetector = new ScaleGestureDetector(frame_layout.getContext(), new ScaleListener());
+
+
 
         setPos();
         setListener();
@@ -62,23 +69,50 @@ class Floor {
     }
 
     private void setListener() {
+//        frame_layout.setOnTouchEvent(new View.OnTouchEvent() {
+//            @Override
+//            public boolean onTouchEvent(MotionEvent motionEvent) {
+//                scaleGestureDetector.onTouchEvent(motionEvent);
+//                return true;
+//            }
+//        });
+
         map.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View view, MotionEvent event) {
-                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    mouse_x = event.getX();
-                    mouse_y = event.getY();
-                }
-                if (MotionEvent.ACTION_MOVE == event.getAction()) {
-                    movMap(event.getX() - mouse_x, event.getY() - mouse_y);
-                }
-                if (MotionEvent.ACTION_UP == event.getAction()) {
-                    setPos();
+                int pointer_count = event.getPointerCount();
+                if(pointer_count == 1) {
+                    if (MotionEvent.ACTION_DOWN == event.getAction()) {
+                        mouse_x = event.getX();
+                        mouse_y = event.getY();
+                    }
+                    if (MotionEvent.ACTION_MOVE == event.getAction()) {
+                        movMap(event.getX() - mouse_x, event.getY() - mouse_y);
+                    }
+                    if (MotionEvent.ACTION_UP == event.getAction()) {
+                        setPos();
+                    }
+                }else {
+//                    scaleGestureDetector.onTouchEvent(event);
                 }
                 Log.d("onTouch", "dx " + (event.getX() - mouse_x) + " dy " + (event.getY() - mouse_y));
                 return true;
             }
         });
+
+    }
+
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector){
+            scale *= scaleGestureDetector.getScaleFactor();
+            scale = Math.max(0.1f, Math.min(scale, 10.0f));
+//            map.setScaleX(scale);
+//            map.setScaleY(scale);
+            scaleMapForScale();
+            return true;
+        }
     }
 
     /**
@@ -128,6 +162,19 @@ class Floor {
                 scale = scale * (1 + Config.SCALE_STEP);
             else
                 scale = scale / (1 + Config.SCALE_STEP);
+
+            map.setScaleX(scale);
+            map.setScaleY(scale);
+        }
+        Log.d("scaleMap", "scale: " + scale);
+    }
+
+    public void scaleMapForScale(){
+        if(Config.SCALE_STEP  * scale + scale <= MAX_SCALE && Config.SCALE_STEP * scale + scale >= MIN_SCALE) {
+//            if (icons != null)
+//                for (Icon icon : icons) {
+//                    icon.scaleIcon(index, map.getWidth(), map.getHeight(), map.getX(), map.getY());
+//                }
 
             map.setScaleX(scale);
             map.setScaleY(scale);

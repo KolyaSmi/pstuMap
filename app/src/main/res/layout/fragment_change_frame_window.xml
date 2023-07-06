@@ -16,9 +16,8 @@
 
         <ImageView
             android:id="@+id/ledge"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
             android:paddingBottom="8dp"
             android:src="@drawable/minus" />
 
@@ -61,9 +60,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:background="@drawable/blocked_back_button_in_up_window"
+                    android:background="@drawable/back_button_in_up_window"
                     android:fontFamily="@font/ubuntu"
-                    android:foreground="@drawable/blocked_back_button_in_up_window"
                     android:text="КОРПУС Б"
                     android:textColor="#000000"
                     android:textSize="20sp" />
@@ -92,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:background="@drawable/back_button_in_up_window"
+                    android:background="@drawable/blocked_back_button_in_up_window"
                     android:fontFamily="@font/ubuntu"
                     android:text="КОРПУС Г"
                     android:textColor="#000000"
@@ -116,6 +114,8 @@
                     android:textSize="20sp" />
 
             </TableRow>
+
+
 
         </LinearLayout>
 

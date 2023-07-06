@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pstumap.MainActivity;
 import com.example.pstumap.R;
+import com.example.pstumap.source.FrameManager;
 
 public class IconWindow extends Fragment {
 
@@ -19,6 +21,8 @@ public class IconWindow extends Fragment {
     public TextView text_description;
 
     public ImageView image;
+
+    private ImageView ledge;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +34,16 @@ public class IconWindow extends Fragment {
         text_description = rootView.findViewById(R.id.text_description);
 
         image = rootView.findViewById(R.id.imageView);
+
+        ledge = rootView.findViewById(R.id.ledge);
+
+        ledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager.hideFragment(FragmentManager.icon_window);
+                FrameManager.checkOpenIcons();
+            }
+        });
 
         return rootView;
     }
